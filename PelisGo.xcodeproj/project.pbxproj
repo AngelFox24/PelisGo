@@ -16,6 +16,12 @@
 		27D962022B0FC7570037BD38 /* PelisGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D962012B0FC7570037BD38 /* PelisGoTests.swift */; };
 		27D9620C2B0FC7570037BD38 /* PelisGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9620B2B0FC7570037BD38 /* PelisGoUITests.swift */; };
 		27D9620E2B0FC7570037BD38 /* PelisGoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9620D2B0FC7570037BD38 /* PelisGoUITestsLaunchTests.swift */; };
+		27D962202B0FDB760037BD38 /* MoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9621F2B0FDB760037BD38 /* MoviesListView.swift */; };
+		27D962262B0FDBED0037BD38 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D962252B0FDBED0037BD38 /* MovieDetailView.swift */; };
+		27D962282B0FDDEA0037BD38 /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D962272B0FDDEA0037BD38 /* MovieCardView.swift */; };
+		27D9622C2B0FE05C0037BD38 /* CustomAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9622B2B0FE05C0037BD38 /* CustomAsyncImageView.swift */; };
+		27D9622E2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9622D2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift */; };
+		27D962302B0FE3610037BD38 /* ImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9622F2B0FE3610037BD38 /* ImageUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,12 @@
 		27D962072B0FC7570037BD38 /* PelisGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelisGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D9620B2B0FC7570037BD38 /* PelisGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoUITests.swift; sourceTree = "<group>"; };
 		27D9620D2B0FC7570037BD38 /* PelisGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		27D9621F2B0FDB760037BD38 /* MoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListView.swift; sourceTree = "<group>"; };
+		27D962252B0FDBED0037BD38 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		27D962272B0FDDEA0037BD38 /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
+		27D9622B2B0FE05C0037BD38 /* CustomAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImageView.swift; sourceTree = "<group>"; };
+		27D9622D2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProductNetworkViewModel.swift; sourceTree = "<group>"; };
+		27D9622F2B0FE3610037BD38 /* ImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +166,7 @@
 		27D9621C2B0FCB200037BD38 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27D9622F2B0FE3610037BD38 /* ImageUrl.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +174,7 @@
 		27D9621D2B0FCB370037BD38 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				27D9622D2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -168,9 +182,61 @@
 		27D9621E2B0FCB400037BD38 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27D9622A2B0FDE510037BD38 /* Resources */,
+				27D962292B0FDDFC0037BD38 /* SessionView */,
+				27D962232B0FDBD00037BD38 /* MovieDetailView */,
+				27D962212B0FDB7E0037BD38 /* MoviesView */,
 				27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		27D962212B0FDB7E0037BD38 /* MoviesView */ = {
+			isa = PBXGroup;
+			children = (
+				27D962222B0FDB970037BD38 /* Components */,
+				27D9621F2B0FDB760037BD38 /* MoviesListView.swift */,
+			);
+			path = MoviesView;
+			sourceTree = "<group>";
+		};
+		27D962222B0FDB970037BD38 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				27D962272B0FDDEA0037BD38 /* MovieCardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		27D962232B0FDBD00037BD38 /* MovieDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				27D962242B0FDBDE0037BD38 /* Components */,
+				27D962252B0FDBED0037BD38 /* MovieDetailView.swift */,
+			);
+			path = MovieDetailView;
+			sourceTree = "<group>";
+		};
+		27D962242B0FDBDE0037BD38 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		27D962292B0FDDFC0037BD38 /* SessionView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SessionView;
+			sourceTree = "<group>";
+		};
+		27D9622A2B0FDE510037BD38 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27D9622B2B0FE05C0037BD38 /* CustomAsyncImageView.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,9 +369,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D962262B0FDBED0037BD38 /* MovieDetailView.swift in Sources */,
+				27D962202B0FDB760037BD38 /* MoviesListView.swift in Sources */,
 				27D961F52B0FC7570037BD38 /* Persistence.swift in Sources */,
 				27D961EE2B0FC7560037BD38 /* ContentView.swift in Sources */,
+				27D9622C2B0FE05C0037BD38 /* CustomAsyncImageView.swift in Sources */,
 				27D961EC2B0FC7560037BD38 /* PelisGoApp.swift in Sources */,
+				27D9622E2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift in Sources */,
+				27D962302B0FE3610037BD38 /* ImageUrl.swift in Sources */,
+				27D962282B0FDDEA0037BD38 /* MovieCardView.swift in Sources */,
 				27D961F82B0FC7570037BD38 /* PelisGo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

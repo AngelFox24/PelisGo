@@ -21,9 +21,9 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
     var viewContext: NSManagedObjectContext {
-        persistentContainer.viewContext
+        container.viewContext
     }
     var persistContainer: NSPersistentContainer {
-        persistentContainer
+        container
     }
 }
