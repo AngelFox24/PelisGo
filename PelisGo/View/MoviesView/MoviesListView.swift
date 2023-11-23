@@ -13,21 +13,19 @@ struct MoviesListView: View {
         VStack(spacing: 0) {
             if moviesListViewModel.moviesList.count == 0 {
                 VStack {
-                    Image("groundhog_finding")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 300, height: 300)
-                    Text("Error al cargar las Películas.")
-                        .foregroundColor(.black)
-                        .padding(.horizontal, 20)
-                        .font(.custom("Artifika-Regular", size: 18))
-                    /*
                     Button(action: {
-                        selectedTab = .plus
+                        //selectedTab = .plus
                     }, label: {
-                        CustomButton1(text: "Agregar")
+                        VStack(content: {
+                            Image(systemName: "arrow.counterclockwise")
+                                .font(.custom("Artifika-Regular", size: 90))
+                                .foregroundColor(.blue)
+                            Text("Recargar.")
+                                .foregroundColor(.blue)
+                                .padding(.horizontal, 20)
+                                .font(.custom("Artifika-Regular", size: 18))
+                        })
                     })
-                     */
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
