@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CustomAsyncImageView: View {
-    let id: UUID
+    let id: Int
     let urlProducto: String
     let sizeWidth: CGFloat
     let sizeHeight: CGFloat
     @ObservedObject var imageProductNetwork = ImageProductNetworkViewModel()
-    init(id: UUID, urlProducto: String, sizeWidth: CGFloat, sizeHeight: CGFloat, imageProductNetwork: ImageProductNetworkViewModel = ImageProductNetworkViewModel()) {
+    init(id: Int, urlProducto: String, sizeWidth: CGFloat, sizeHeight: CGFloat, imageProductNetwork: ImageProductNetworkViewModel = ImageProductNetworkViewModel()) {
         self.id = id
         self.urlProducto = urlProducto
         self.sizeWidth = sizeWidth
@@ -42,5 +42,5 @@ struct CustomAsyncImageView: View {
 }
 
 #Preview {
-    CustomAsyncImageView(id: UUID(uuidString: "3062F3B7-14C7-4314-B342-1EC912EBD925") ?? UUID(), urlProducto: "https://image.tmdb.org/t/p/w500/aTvePCU7exLepwg5hWySjwxojQK.jpg", sizeWidth: 100, sizeHeight: 100)
+    CustomAsyncImageView(id: 24125, urlProducto: "https://image.tmdb.org/t/p/w500/aTvePCU7exLepwg5hWySjwxojQK.jpg", sizeWidth: 100, sizeHeight: 100)
 }

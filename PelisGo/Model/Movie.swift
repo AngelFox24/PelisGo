@@ -8,7 +8,7 @@
 import Foundation
 
 struct Movie: Identifiable {
-    let id: UUID
+    let id: Int
     let title: String
     let posterPath: String
     let voteAverage: Double
