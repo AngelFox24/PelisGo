@@ -105,7 +105,6 @@
 				27D9621E2B0FCB400037BD38 /* View */,
 				27D961ED2B0FC7560037BD38 /* ContentView.swift */,
 				27D961EF2B0FC7570037BD38 /* Assets.xcassets */,
-				27D961F42B0FC7570037BD38 /* Persistence.swift */,
 				27D961F62B0FC7570037BD38 /* PelisGo.xcdatamodeld */,
 				27D961F12B0FC7570037BD38 /* Preview Content */,
 			);
@@ -147,6 +146,7 @@
 		27D9621B2B0FCB140037BD38 /* manager */ = {
 			isa = PBXGroup;
 			children = (
+				27D961F42B0FC7570037BD38 /* Persistence.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";

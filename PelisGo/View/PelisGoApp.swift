@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct PelisGoApp: App {
-    let persistenceController = PersistenceController.shared
+    let mainContext = PersistenceController.shared.viewContext
 
     var body: some Scene {
         WindowGroup {
