@@ -17,8 +17,12 @@ struct MovieCardView: View {
 }
 
 #Preview {
-    VStack{
+    HStack{
+        Spacer()
         MovieCardView(image: ImageUrl.getDummyImage())
+        Spacer()
+        MovieCardView(image: ImageUrl.getDummyImage())
+        Spacer()
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Color.gray)

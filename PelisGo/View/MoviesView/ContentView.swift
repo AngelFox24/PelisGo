@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    
     var body: some View {
         ScrollView {
             Text("Select an item")

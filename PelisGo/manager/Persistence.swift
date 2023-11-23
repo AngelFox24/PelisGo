@@ -13,12 +13,11 @@ struct PersistenceController {
 
     private init() {
         container = NSPersistentContainer(name: "PelisGo")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+        container.loadPersistentStores { _, error in
+            if let error {
+                fatalError("Unable to initialize data \(error)")
             }
-        })
-        container.viewContext.automaticallyMergesChangesFromParent = true
+        }
     }
     var viewContext: NSManagedObjectContext {
         container.viewContext

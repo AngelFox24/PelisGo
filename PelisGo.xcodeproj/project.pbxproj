@@ -22,6 +22,12 @@
 		27D9622C2B0FE05C0037BD38 /* CustomAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9622B2B0FE05C0037BD38 /* CustomAsyncImageView.swift */; };
 		27D9622E2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9622D2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift */; };
 		27D962302B0FE3610037BD38 /* ImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9622F2B0FE3610037BD38 /* ImageUrl.swift */; };
+		27D962322B0FEF0A0037BD38 /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D962312B0FEF0A0037BD38 /* MoviesListViewModel.swift */; };
+		27D962342B0FEF1D0037BD38 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D962332B0FEF1D0037BD38 /* MovieDetailViewModel.swift */; };
+		27D962362B0FEF9D0037BD38 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D962352B0FEF9D0037BD38 /* Movie.swift */; };
+		27D9623B2B0FF1870037BD38 /* LocalMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9623A2B0FF1870037BD38 /* LocalMovieManager.swift */; };
+		27D9623D2B0FF1A30037BD38 /* MovieRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9623C2B0FF1A30037BD38 /* MovieRepositoryImpl.swift */; };
+		27D9623F2B0FF1B50037BD38 /* RemoteMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9623E2B0FF1B50037BD38 /* RemoteMovieManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,12 @@
 		27D9622B2B0FE05C0037BD38 /* CustomAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImageView.swift; sourceTree = "<group>"; };
 		27D9622D2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProductNetworkViewModel.swift; sourceTree = "<group>"; };
 		27D9622F2B0FE3610037BD38 /* ImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUrl.swift; sourceTree = "<group>"; };
+		27D962312B0FEF0A0037BD38 /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
+		27D962332B0FEF1D0037BD38 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		27D962352B0FEF9D0037BD38 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		27D9623A2B0FF1870037BD38 /* LocalMovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMovieManager.swift; sourceTree = "<group>"; };
+		27D9623C2B0FF1A30037BD38 /* MovieRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryImpl.swift; sourceTree = "<group>"; };
+		27D9623E2B0FF1B50037BD38 /* RemoteMovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMovieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +127,7 @@
 				27D9621C2B0FCB200037BD38 /* Model */,
 				27D9621D2B0FCB370037BD38 /* ViewModel */,
 				27D9621E2B0FCB400037BD38 /* View */,
-				27D961ED2B0FC7560037BD38 /* ContentView.swift */,
+				27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */,
 				27D961EF2B0FC7570037BD38 /* Assets.xcassets */,
 				27D961F62B0FC7570037BD38 /* PelisGo.xcdatamodeld */,
 				27D961F12B0FC7570037BD38 /* Preview Content */,
@@ -151,6 +163,9 @@
 		27D9621A2B0FCB0C0037BD38 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				27D962372B0FF1230037BD38 /* repository */,
+				27D962382B0FF1300037BD38 /* remote */,
+				27D962392B0FF1370037BD38 /* local */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -167,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				27D9622F2B0FE3610037BD38 /* ImageUrl.swift */,
+				27D962352B0FEF9D0037BD38 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				27D9622D2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift */,
+				27D962312B0FEF0A0037BD38 /* MoviesListViewModel.swift */,
+				27D962332B0FEF1D0037BD38 /* MovieDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -186,7 +204,6 @@
 				27D962292B0FDDFC0037BD38 /* SessionView */,
 				27D962232B0FDBD00037BD38 /* MovieDetailView */,
 				27D962212B0FDB7E0037BD38 /* MoviesView */,
-				27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +213,7 @@
 			children = (
 				27D962222B0FDB970037BD38 /* Components */,
 				27D9621F2B0FDB760037BD38 /* MoviesListView.swift */,
+				27D961ED2B0FC7560037BD38 /* ContentView.swift */,
 			);
 			path = MoviesView;
 			sourceTree = "<group>";
@@ -237,6 +255,30 @@
 				27D9622B2B0FE05C0037BD38 /* CustomAsyncImageView.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		27D962372B0FF1230037BD38 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				27D9623C2B0FF1A30037BD38 /* MovieRepositoryImpl.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		27D962382B0FF1300037BD38 /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				27D9623E2B0FF1B50037BD38 /* RemoteMovieManager.swift */,
+			);
+			path = remote;
+			sourceTree = "<group>";
+		};
+		27D962392B0FF1370037BD38 /* local */ = {
+			isa = PBXGroup;
+			children = (
+				27D9623A2B0FF1870037BD38 /* LocalMovieManager.swift */,
+			);
+			path = local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,13 +412,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				27D962262B0FDBED0037BD38 /* MovieDetailView.swift in Sources */,
+				27D9623D2B0FF1A30037BD38 /* MovieRepositoryImpl.swift in Sources */,
 				27D962202B0FDB760037BD38 /* MoviesListView.swift in Sources */,
+				27D9623B2B0FF1870037BD38 /* LocalMovieManager.swift in Sources */,
 				27D961F52B0FC7570037BD38 /* Persistence.swift in Sources */,
 				27D961EE2B0FC7560037BD38 /* ContentView.swift in Sources */,
 				27D9622C2B0FE05C0037BD38 /* CustomAsyncImageView.swift in Sources */,
 				27D961EC2B0FC7560037BD38 /* PelisGoApp.swift in Sources */,
 				27D9622E2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift in Sources */,
 				27D962302B0FE3610037BD38 /* ImageUrl.swift in Sources */,
+				27D9623F2B0FF1B50037BD38 /* RemoteMovieManager.swift in Sources */,
+				27D962362B0FEF9D0037BD38 /* Movie.swift in Sources */,
+				27D962342B0FEF1D0037BD38 /* MovieDetailViewModel.swift in Sources */,
+				27D962322B0FEF0A0037BD38 /* MoviesListViewModel.swift in Sources */,
 				27D962282B0FDDEA0037BD38 /* MovieCardView.swift in Sources */,
 				27D961F82B0FC7570037BD38 /* PelisGo.xcdatamodeld in Sources */,
 			);

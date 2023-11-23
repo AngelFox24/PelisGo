@@ -27,7 +27,7 @@ struct CustomAsyncImageView: View {
             if let imageC = imageProductNetwork.imageProduct {
                 imageC
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: sizeWidth, height: sizeHeight)
                     .cornerRadius(15.0)
             } else {
