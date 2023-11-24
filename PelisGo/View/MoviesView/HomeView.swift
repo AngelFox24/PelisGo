@@ -11,6 +11,26 @@ struct HomeView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var detailViewModel: DetailViewModel
     @EnvironmentObject var navManager: NavManager
+    @AppStorage("homeViewColumns") var hasHomeViewColumns: Int?
+    private let spacingI: CGFloat = 10
+    private var gridItem = GridItem(.flexible(), spacing: 1)
+    private var homeViewCols: [GridItem] = []
+    init() {
+        gridItem = GridItem(.flexible(), spacing: spacingI)
+        let screenWidth: Double = UIScreen.main.bounds.size.width
+        let cardViewWidth = 120.0
+        let colsD = screenWidth / (cardViewWidth + Double(spacingI))
+        print("Columnas Double : \(colsD)")
+        let colsI = Int(colsD.rounded())
+        print("Columnas Int : \(colsI)")
+        hasHomeViewColumns = colsI
+        var colsTemp = colsI
+        while colsTemp >= 1 {
+            homeViewCols.append(gridItem)
+            colsTemp = colsTemp - 1
+        }
+        print("Cols Count : \(homeViewCols.count)")
+    }
     var body: some View {
         VStack(spacing: 0) {
             HomeTopBarView()
@@ -34,7 +54,7 @@ struct HomeView: View {
             } else {
                 VStack(content: {
                     List {
-                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 1), GridItem(.flexible(), spacing: 1)], spacing: 1) {
+                        LazyVGrid(columns: homeViewCols, spacing: 1) {
                             ForEach(homeViewModel.moviesList) { movie in
                                 MovieCardView(movie: movie, save: false)
                                     .onTapGesture {
