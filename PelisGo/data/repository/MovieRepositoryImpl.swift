@@ -9,7 +9,7 @@ import Foundation
 
 protocol MovieRepository {
     func addMovie(movie: Movie) -> Bool //C
-    func getListMovies(completion: @escaping (Result<[Movie], APIError>) -> Void)
+    func getListMovies(page: Int, completion: @escaping (Result<[Movie], APIError>) -> Void)
     func getListMoviesBackUp() -> [Movie]
     //func updateMovie(movie: Movie) //U
     func clearAllMovies() -> Bool //D
@@ -29,8 +29,8 @@ class MovieRepositoryImpl: MovieRepository {
         self.localManager.addMovie(movie: movie)
     }
     //R - Read
-    func getListMovies(completion: @escaping (Result<[Movie], APIError>) -> Void) {
-        return self.remoteManager.getListMovies(completion: completion)
+    func getListMovies(page: Int, completion: @escaping (Result<[Movie], APIError>) -> Void) {
+        return self.remoteManager.getListMovies(page: page, completion: completion)
     }
     func getListMoviesBackUp() -> [Movie] {
         print("Se ingreso a Repo")

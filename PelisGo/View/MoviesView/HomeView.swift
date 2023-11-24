@@ -14,8 +14,9 @@ struct HomeView: View {
     @AppStorage("homeViewColumns") var hasHomeViewColumns: Int?
     private let spacingI: CGFloat = 10
     private var gridItem = GridItem(.flexible(), spacing: 1)
-    private var homeViewCols: [GridItem] = []
+    private var homeViewCols: [GridItem] = [GridItem(.flexible(), spacing: 10),GridItem(.flexible(), spacing: 10),GridItem(.flexible(), spacing: 10)]
     init() {
+        /*
         gridItem = GridItem(.flexible(), spacing: spacingI)
         let screenWidth: Double = UIScreen.main.bounds.size.width
         let cardViewWidth = 120.0
@@ -30,6 +31,7 @@ struct HomeView: View {
             colsTemp = colsTemp - 1
         }
         print("Cols Count : \(homeViewCols.count)")
+         */
     }
     var body: some View {
         VStack(spacing: 0) {
@@ -54,15 +56,21 @@ struct HomeView: View {
             } else {
                 VStack(content: {
                     List {
-                        LazyVGrid(columns: homeViewCols, spacing: 1) {
+                        //LazyVGrid(columns: [GridItem(.flexible(), spacing: 10),GridItem(.flexible(), spacing: 10),GridItem(.flexible(), spacing: 10)], spacing: 1) {
                             ForEach(homeViewModel.moviesList) { movie in
                                 MovieCardView(movie: movie, save: false)
                                     .onTapGesture {
                                         detailViewModel.saveCurrentMovie(movie: movie)
                                         navManager.goToMovieDetail()
                                     }
+                                    .onAppear(perform: {
+                                        if homeViewModel.shouldLoadData(movie: movie) {
+                                            print("Cargandoooooo")
+                                            homeViewModel.fetchNextPage()
+                                        }
+                                    })
                             }
-                        }
+                        //}
                     }
                     .listStyle(PlainListStyle())
                 })

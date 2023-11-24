@@ -9,19 +9,26 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var moviesList: [Movie] = []
+    var currentPage: Int = 1
     let movieRepository: MovieRepository
     init(movieRepository: MovieRepository) {
         self.movieRepository = movieRepository
         fetchMovies()
     }
     // MARK: CRUD Core Data
-    func fetchMovies() {
-        movieRepository.getListMovies { [weak self] result in
+    func fetchMovies(page: Int = 1) {
+        movieRepository.getListMovies(page: page) { [weak self] result in
                     switch result {
                     case .success(let movies):
                         // Actualizar la lista de películas y notificar a las vistas
                         DispatchQueue.main.async {
-                            self?.moviesList = movies
+                            if page == 1 {
+                                self?.moviesList = movies
+                            } else {
+                                self?.moviesList.append(contentsOf: movies)
+                            }
+                            print("First: \(String(describing: self?.moviesList.first?.title))")
+                            print("Last: \(String(describing: self?.moviesList.last?.title))")
                         }
                     case .failure(let error):
                         DispatchQueue.main.async {
@@ -32,8 +39,27 @@ class HomeViewModel: ObservableObject {
                 }
     }
     
+    func fetchNextPage() {
+        if currentPage < 3 {
+            currentPage = currentPage + 1
+            print("Current: \(currentPage)")
+            fetchMovies(page: currentPage)
+        }
+    }
+    
     func clearAllData() {
         self.movieRepository.clearAllMovies()
+    }
+    
+    func shouldLoadData(movie: Movie) -> Bool {
+        if moviesList.isEmpty {
+            return false
+        } else {
+            if movie == moviesList.last {
+                print("Porque?: \(movie.title) and \(moviesList.last?.title)")
+            }
+            return movie == moviesList.last
+        }
     }
     
     func lazyFetchProducts() {

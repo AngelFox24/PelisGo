@@ -13,7 +13,7 @@ enum LogInStatus {
 }
 
 class LogInViewModel: ObservableObject {
-    @Published var logInStatus: LogInStatus = .fail
+    @Published var logInStatus: LogInStatus = .success
     @Published var logInFields: LogInFields = LogInFields()
     func fieldsTrue() {
         print("All value true")

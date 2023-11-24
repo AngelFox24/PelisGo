@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Identifiable, Decodable {
+struct Movie: Identifiable, Decodable, Equatable {
     let adult: Bool
     let id: Int
     let poster_path: String?
@@ -30,6 +30,11 @@ struct Movie: Identifiable, Decodable {
     var poster: URL? {
         let baseURL = URL(string: "https://image.tmdb.org/t/p/w500")
         return baseURL?.appending(path: poster_path ?? "")
+    }
+    
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        // Puedes ajustar la lógica de comparación según tus necesidades
+        return lhs.id == rhs.id
     }
     
     var release_date_converted : Date? {
