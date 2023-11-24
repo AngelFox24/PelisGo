@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject {
     }
     // MARK: CRUD Core Data
     func fetchMovies() {
+        let moviesBackUp = self.movieRepository.getListMoviesBackUp()
         movieRepository.getListMovies { [weak self] result in
                     switch result {
                     case .success(let movies):
@@ -24,6 +25,24 @@ class HomeViewModel: ObservableObject {
                             self?.moviesList = movies
                         }
                     case .failure(let error):
+                        DispatchQueue.main.async {
+                            print("Se buscara en local")
+                            self?.moviesList = moviesBackUp
+                            for movie2 in moviesBackUp {
+                                print("ViewModelBK")
+                                print("id: \(String(describing: movie2.id))")
+                                print("Titulo: \(String(describing: movie2.title))")
+                                print("URL: \(String(describing: movie2.poster_path))")
+                            }
+                            if let list = self?.moviesList {
+                                for movie in list {
+                                    print("ViewModel")
+                                    print("id: \(String(describing: movie.id))")
+                                    print("Titulo: \(String(describing: movie.title))")
+                                    print("URL: \(String(describing: movie.poster_path))")
+                                }
+                            }
+                        }
                         print("Error al obtener la lista de películas: \(error.localizedDescription)")
                     }
                 }
