@@ -1,5 +1,5 @@
 //
-//  MovieDetailViewModel.swift
+//  DetailViewModel.swift
 //  PelisGo
 //
 //  Created by Angel Curi Laurente on 23/11/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MovieDetailViewModel: ObservableObject {
+class DetailViewModel: ObservableObject {
     @Published var movie: Movie?
     let movieRepository: MovieRepository
     init(movieRepository: MovieRepository) {

@@ -21,6 +21,20 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        let localMovieManager = LocalMovieManager(mainContext: PersistenceController.shared.viewContext)
+        let remoteMovieManager = RemoteMovieManager()
+        //Repositories
+        let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
+        //ViewModel
+        let homeViewModel = HomeViewModel(movieRepository: movieRepository)
+        let detailViewModel = DetailViewModel(movieRepository: movieRepository)
+        let navManager = NavManager()
+        ContentView()
+            .environmentObject(homeViewModel)
+            .environmentObject(detailViewModel)
+            .environmentObject(navManager)
+    }
 }

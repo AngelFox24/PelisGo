@@ -14,7 +14,7 @@ class ImageProductNetworkViewModel: ObservableObject {
     @Published var imageProduct: Image?
     // Image("ProductoSinNombre")
     var suscriber = Set<AnyCancellable>()
-    func getImage(id: String, url: URL) {
+    func getImage(id: String, url: URL, save: Bool) {
         if imageProduct != nil { // imagen ya cargada en memoria
             print("Imagen ya esta cargada para que quieres cargarlo pz")
             return
@@ -40,12 +40,14 @@ class ImageProductNetworkViewModel: ObservableObject {
                         }
                     }, receiveValue: { image in
                         self.imageProduct = Image(uiImage: image)
-                        if self.shouldSaveImage(image: image) {
-                            print("La imagen es aceptada para ser guardada")
-                            if self.saveImage(id: id, image: image, url: url.absoluteString) {
-                                } else {
-                                    print("Error al guardar imagen, no se pudo reemplazar")
-                                }
+                        if save {
+                            if self.shouldSaveImage(image: image) {
+                                print("La imagen es aceptada para ser guardada")
+                                if self.saveImage(id: id, image: image, url: url.absoluteString) {
+                                    } else {
+                                        print("Error al guardar imagen, no se pudo reemplazar")
+                                    }
+                            }
                         }
                     })
                     .store(in: &suscriber)

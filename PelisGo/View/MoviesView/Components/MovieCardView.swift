@@ -9,9 +9,10 @@ import SwiftUI
 
 struct MovieCardView: View {
     var movie: Movie
+    var save: Bool = true
     var body: some View {
         VStack(content: {
-            CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200)
+            CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, save: save)
         })
     }
 }

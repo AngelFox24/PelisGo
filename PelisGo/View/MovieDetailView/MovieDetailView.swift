@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    @EnvironmentObject var movieDetailViewModel: MovieDetailViewModel
+    @EnvironmentObject var detailViewModel: DetailViewModel
     let movie = Movie.preview
     var body: some View {
         VStack(spacing: 0, content: {
-            if let movieDe = movieDetailViewModel.movie {
+            if let movieDe = detailViewModel.movie {
                 CustomTopBarView(tittle: movieDe.title)
             } else {
                 CustomTopBarView(tittle: movie.title)
@@ -32,21 +32,21 @@ struct MovieDetailView_Previews: PreviewProvider {
         //Repositories
         let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
         //ViewModel
-        let moviesListViewModel = MoviesListViewModel(movieRepository: movieRepository)
-        let movieDetailViewModel = MovieDetailViewModel(movieRepository: movieRepository)
+        let homeViewModel = HomeViewModel(movieRepository: movieRepository)
+        let detailViewModel = DetailViewModel(movieRepository: movieRepository)
         MovieDetailView()
-            .environmentObject(moviesListViewModel)
-            .environmentObject(movieDetailViewModel)
+            .environmentObject(homeViewModel)
+            .environmentObject(detailViewModel)
     }
 }
 
 struct MovieDetailViewScroll: View {
-    @EnvironmentObject var movieDetailViewModel: MovieDetailViewModel
+    @EnvironmentObject var detailViewModel: DetailViewModel
     let movie = Movie.preview
     
     var body: some View {
         ScrollView(content: {
-            if let movie = movieDetailViewModel.movie {VStack(spacing: 0, content: {
+            if let movie = detailViewModel.movie {
                 VStack(spacing: 0, content: {
                     ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {
                         CustomAsyncImageView(id: movie.id.description + "_backdrop_path", urlProducto: movie.backdropURL?.absoluteString ?? "", sizeWidth: .infinity, sizeHeight: 210, contendMode: .fill)
@@ -68,7 +68,6 @@ struct MovieDetailViewScroll: View {
                     .padding(.top, 20)
                     Text(movie.overview)
                 })
-            })
             } else {
                 VStack(spacing: 0, content: {
                     ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {

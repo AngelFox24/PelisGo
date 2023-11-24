@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MoviesListView: View {
-    @EnvironmentObject var moviesListViewModel: MoviesListViewModel
-    @EnvironmentObject var movieDetailViewModel: MovieDetailViewModel
+    @EnvironmentObject var homeViewModel: HomeViewModel
+    @EnvironmentObject var detailViewModel: DetailViewModel
     @EnvironmentObject var navManager: NavManager
     var body: some View {
         VStack(spacing: 0) {
-            if moviesListViewModel.moviesList.count == 0 {
+            if homeViewModel.moviesList.count == 0 {
                 VStack {
                     Button(action: {
                     }, label: {
@@ -32,10 +32,10 @@ struct MoviesListView: View {
             } else {
                 VStack(content: {
                     List {
-                        ForEach(moviesListViewModel.moviesList) { movie in
-                            MovieCardView(movie: movie)
+                        ForEach(homeViewModel.moviesList) { movie in
+                            MovieCardView(movie: movie, save: false)
                                 .onTapGesture {
-                                    movieDetailViewModel.saveCurrentMovie(movie: movie)
+                                    detailViewModel.saveCurrentMovie(movie: movie)
                                     navManager.goToMovieDetail()
                                 }
                         }
@@ -63,10 +63,12 @@ struct MoviesListView_Previews: PreviewProvider {
         //Repositories
         let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
         //ViewModel
-        let moviesListViewModel = MoviesListViewModel(movieRepository: movieRepository)
-        let movieDetailViewModel = MovieDetailViewModel(movieRepository: movieRepository)
+        let homeViewModel = HomeViewModel(movieRepository: movieRepository)
+        let detailViewModel = DetailViewModel(movieRepository: movieRepository)
+        let navManager = NavManager()
         MoviesListView()
-            .environmentObject(moviesListViewModel)
-            .environmentObject(movieDetailViewModel)
+            .environmentObject(homeViewModel)
+            .environmentObject(detailViewModel)
+            .environmentObject(navManager)
     }
 }

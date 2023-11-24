@@ -13,15 +13,17 @@ struct CustomAsyncImageView: View {
     let sizeWidth: CGFloat
     let sizeHeight: CGFloat
     let contendMode: ContentMode
+    let save: Bool
     @ObservedObject var imageProductNetwork = ImageProductNetworkViewModel()
-    init(id: String, urlProducto: String, sizeWidth: CGFloat, sizeHeight: CGFloat, imageProductNetwork: ImageProductNetworkViewModel = ImageProductNetworkViewModel(), contendMode: ContentMode = .fit) {
+    init(id: String, urlProducto: String, sizeWidth: CGFloat, sizeHeight: CGFloat, imageProductNetwork: ImageProductNetworkViewModel = ImageProductNetworkViewModel(), contendMode: ContentMode = .fit, save: Bool = true) {
         self.id = id
         self.urlProducto = urlProducto
         self.sizeWidth = sizeWidth
         self.sizeHeight = sizeHeight
         self.imageProductNetwork = imageProductNetwork
         self.contendMode = contendMode
-        imageProductNetwork.getImage(id: id, url: (((URL(string: urlProducto ) ?? URL(string: "https://falabella.scene7.com/is/image/FalabellaPE/gsc_117581885_1813935_1?wid=1500&hei=1500&qlt=70"))!)))
+        self.save = save
+        imageProductNetwork.getImage(id: id, url: (((URL(string: urlProducto ) ?? URL(string: "https://falabella.scene7.com/is/image/FalabellaPE/gsc_117581885_1813935_1?wid=1500&hei=1500&qlt=70"))!)), save: save)
         print("Se cargo la imagen en Init")
         print("URL: \(urlProducto)")
     }
