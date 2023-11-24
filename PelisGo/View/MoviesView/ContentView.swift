@@ -9,14 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @EnvironmentObject var logInViewModel: LogInViewModel
     @EnvironmentObject var navManager: NavManager
     var body: some View {
         NavigationStack(path: $navManager.navPaths) {
-            //if logInViewModel.logInStatus == .success {
-            HomeView()
-            //} else {
-            // WelcomeView(isKeyboardVisible: $isKeyboardVisible)
-            //}
+            if logInViewModel.logInStatus == .success {
+                HomeView()
+            } else {
+                LogInView()
+            }
         }
     }
 }
@@ -29,10 +30,12 @@ struct ContentView_Previews: PreviewProvider {
         //Repositories
         let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
         //ViewModel
+        let logInViewModel = LogInViewModel()
         let homeViewModel = HomeViewModel(movieRepository: movieRepository)
         let detailViewModel = DetailViewModel(movieRepository: movieRepository)
         let navManager = NavManager()
         ContentView()
+            .environmentObject(logInViewModel)
             .environmentObject(homeViewModel)
             .environmentObject(detailViewModel)
             .environmentObject(navManager)

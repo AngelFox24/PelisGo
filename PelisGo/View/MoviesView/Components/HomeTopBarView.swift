@@ -26,6 +26,7 @@ enum HomeSelection {
     }}
 
 struct HomeTopBarView: View {
+    @EnvironmentObject var logInViewModel: LogInViewModel
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var detailViewModel: DetailViewModel
     @EnvironmentObject var navManager: NavManager
@@ -37,7 +38,7 @@ struct HomeTopBarView: View {
             HStack(content: {
                 Menu {
                     Button(role: .none, action: {
-                        
+                        logInViewModel.logOut()
                     }, label: {
                         HStack(content: {
                             Image(systemName: "arrow.up.circle")
@@ -87,10 +88,12 @@ struct HomeTopBarView_Previews: PreviewProvider {
         //Repositories
         let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
         //ViewModel
+        let logInViewModel = LogInViewModel()
         let homeViewModel = HomeViewModel(movieRepository: movieRepository)
         let detailViewModel = DetailViewModel(movieRepository: movieRepository)
         let navManager = NavManager()
         HomeTopBarView()
+            .environmentObject(logInViewModel)
             .environmentObject(homeViewModel)
             .environmentObject(detailViewModel)
             .environmentObject(navManager)

@@ -65,10 +65,12 @@ struct HomeView_Previews: PreviewProvider {
         //Repositories
         let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
         //ViewModel
+        let logInViewModel = LogInViewModel()
         let homeViewModel = HomeViewModel(movieRepository: movieRepository)
         let detailViewModel = DetailViewModel(movieRepository: movieRepository)
         let navManager = NavManager()
         HomeView()
+            .environmentObject(logInViewModel)
             .environmentObject(homeViewModel)
             .environmentObject(detailViewModel)
             .environmentObject(navManager)

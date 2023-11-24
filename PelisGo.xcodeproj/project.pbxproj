@@ -12,6 +12,9 @@
 		27B769B52B10550700FB0D30 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769B42B10550700FB0D30 /* DateExtension.swift */; };
 		27B769BA2B10644C00FB0D30 /* ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769B92B10644C00FB0D30 /* ModelMapper.swift */; };
 		27B769BC2B107AD000FB0D30 /* HomeTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769BB2B107AD000FB0D30 /* HomeTopBarView.swift */; };
+		27B769BE2B10884E00FB0D30 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769BD2B10884E00FB0D30 /* LogInViewModel.swift */; };
+		27B769C02B108A4100FB0D30 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769BF2B108A4100FB0D30 /* LogInView.swift */; };
+		27B769C22B108AED00FB0D30 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769C12B108AED00FB0D30 /* CustomTextField.swift */; };
 		27D961EC2B0FC7560037BD38 /* PelisGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */; };
 		27D961EE2B0FC7560037BD38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961ED2B0FC7560037BD38 /* ContentView.swift */; };
 		27D961F02B0FC7570037BD38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D961EF2B0FC7570037BD38 /* Assets.xcassets */; };
@@ -59,6 +62,9 @@
 		27B769B42B10550700FB0D30 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		27B769B92B10644C00FB0D30 /* ModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMapper.swift; sourceTree = "<group>"; };
 		27B769BB2B107AD000FB0D30 /* HomeTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopBarView.swift; sourceTree = "<group>"; };
+		27B769BD2B10884E00FB0D30 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		27B769BF2B108A4100FB0D30 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		27B769C12B108AED00FB0D30 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		27D961E82B0FC7560037BD38 /* PelisGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PelisGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoApp.swift; sourceTree = "<group>"; };
 		27D961ED2B0FC7560037BD38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 				27B769AF2B102FAC00FB0D30 /* Navigation */,
 				27D962312B0FEF0A0037BD38 /* HomeViewModel.swift */,
 				27D962332B0FEF1D0037BD38 /* DetailViewModel.swift */,
+				27B769BD2B10884E00FB0D30 /* LogInViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -295,6 +302,7 @@
 		27D962292B0FDDFC0037BD38 /* SessionView */ = {
 			isa = PBXGroup;
 			children = (
+				27B769BF2B108A4100FB0D30 /* LogInView.swift */,
 			);
 			path = SessionView;
 			sourceTree = "<group>";
@@ -303,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				27D9622B2B0FE05C0037BD38 /* CustomAsyncImageView.swift */,
+				27B769C12B108AED00FB0D30 /* CustomTextField.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -467,14 +476,17 @@
 				27D962202B0FDB760037BD38 /* HomeView.swift in Sources */,
 				27D9623B2B0FF1870037BD38 /* LocalMovieManager.swift in Sources */,
 				27D961F52B0FC7570037BD38 /* Persistence.swift in Sources */,
+				27B769C02B108A4100FB0D30 /* LogInView.swift in Sources */,
 				27D961EE2B0FC7560037BD38 /* ContentView.swift in Sources */,
 				27B769BA2B10644C00FB0D30 /* ModelMapper.swift in Sources */,
+				27B769C22B108AED00FB0D30 /* CustomTextField.swift in Sources */,
 				27D9622C2B0FE05C0037BD38 /* CustomAsyncImageView.swift in Sources */,
 				27D961EC2B0FC7560037BD38 /* PelisGoApp.swift in Sources */,
 				27D9622E2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift in Sources */,
 				27D962302B0FE3610037BD38 /* ImageUrl.swift in Sources */,
 				27D9623F2B0FF1B50037BD38 /* RemoteMovieManager.swift in Sources */,
 				27B769B12B102FC000FB0D30 /* NavManager.swift in Sources */,
+				27B769BE2B10884E00FB0D30 /* LogInViewModel.swift in Sources */,
 				27D962362B0FEF9D0037BD38 /* Movie.swift in Sources */,
 				27D962412B1021500037BD38 /* TrendingResults.swift in Sources */,
 				27D962342B0FEF1D0037BD38 /* DetailViewModel.swift in Sources */,
