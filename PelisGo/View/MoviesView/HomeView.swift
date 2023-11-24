@@ -34,12 +34,14 @@ struct HomeView: View {
             } else {
                 VStack(content: {
                     List {
-                        ForEach(homeViewModel.moviesList) { movie in
-                            MovieCardView(movie: movie, save: false)
-                                .onTapGesture {
-                                    detailViewModel.saveCurrentMovie(movie: movie)
-                                    navManager.goToMovieDetail()
-                                }
+                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 1), GridItem(.flexible(), spacing: 1)], spacing: 1) {
+                            ForEach(homeViewModel.moviesList) { movie in
+                                MovieCardView(movie: movie, save: false)
+                                    .onTapGesture {
+                                        detailViewModel.saveCurrentMovie(movie: movie)
+                                        navManager.goToMovieDetail()
+                                    }
+                            }
                         }
                     }
                     .listStyle(PlainListStyle())
