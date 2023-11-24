@@ -12,7 +12,8 @@ protocol MovieRepository {
     func getListMovies(completion: @escaping (Result<[Movie], APIError>) -> Void)
     func getListMoviesBackUp() -> [Movie]
     //func updateMovie(movie: Movie) //U
-    func deleteMovie(movie: Movie) -> Bool //D
+    func clearAllMovies() -> Bool //D
+    
 }
 
 class MovieRepositoryImpl: MovieRepository {
@@ -49,7 +50,7 @@ class MovieRepositoryImpl: MovieRepository {
     }
      */
     //D - Delete
-    func deleteMovie(movie: Movie) -> Bool {
-        self.localManager.deleteMovie(movie: movie)
+    func clearAllMovies() -> Bool {
+        self.localManager.clearAllMovies()
     }
 }

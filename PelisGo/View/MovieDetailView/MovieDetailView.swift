@@ -12,10 +12,10 @@ struct MovieDetailView: View {
     let movie = Movie.preview
     var body: some View {
         VStack(spacing: 0, content: {
-            if let movieDe = detailViewModel.movie {
-                CustomTopBarView(tittle: movieDe.title)
+            if let movie = detailViewModel.movie {
+                DetailTopBarView(tittle: movie.title)
             } else {
-                CustomTopBarView(tittle: movie.title)
+                DetailTopBarView(tittle: movie.title)
             }
             MovieDetailViewScroll()
         })

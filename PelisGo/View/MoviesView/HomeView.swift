@@ -7,15 +7,17 @@
 
 import SwiftUI
 
-struct MoviesListView: View {
+struct HomeView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var detailViewModel: DetailViewModel
     @EnvironmentObject var navManager: NavManager
     var body: some View {
         VStack(spacing: 0) {
+            HomeTopBarView()
             if homeViewModel.moviesList.count == 0 {
                 VStack {
                     Button(action: {
+                        homeViewModel.fetchMovies()
                     }, label: {
                         VStack(content: {
                             Image(systemName: "arrow.counterclockwise")
@@ -55,7 +57,7 @@ struct MoviesListView: View {
     }
 }
 
-struct MoviesListView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         
         let localMovieManager = LocalMovieManager(mainContext: PersistenceController.shared.viewContext)
@@ -66,7 +68,7 @@ struct MoviesListView_Previews: PreviewProvider {
         let homeViewModel = HomeViewModel(movieRepository: movieRepository)
         let detailViewModel = DetailViewModel(movieRepository: movieRepository)
         let navManager = NavManager()
-        MoviesListView()
+        HomeView()
             .environmentObject(homeViewModel)
             .environmentObject(detailViewModel)
             .environmentObject(navManager)

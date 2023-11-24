@@ -12,7 +12,7 @@ protocol LoMovieManager {
     func addMovie(movie: Movie) -> Bool //C
     func getListMovies() -> [Movie] //R
     //func updateMovie(movie: Movie) //U
-    func deleteMovie(movie: Movie) -> Bool //D
+    func clearAllMovies() -> Bool //D
 }
 
 class LocalMovieManager: LoMovieManager {
@@ -79,7 +79,15 @@ class LocalMovieManager: LoMovieManager {
     }
     //U - Update
     //D - Delete
-    func deleteMovie(movie: Movie) -> Bool {
+    func clearAllMovies() -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CD_Movie")
+        let solicitudEliminacion = NSBatchDeleteRequest(fetchRequest: request)
+        do {
+            try self.mainContext.execute(solicitudEliminacion)
+        } catch let error {
+            print("Error eliminando. \(error)")
+        }
+        saveData()
         return true
     }
 }

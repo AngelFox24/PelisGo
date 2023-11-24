@@ -13,9 +13,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $navManager.navPaths) {
             //if logInViewModel.logInStatus == .success {
-                MoviesListView()
+            HomeView()
             //} else {
-               // WelcomeView(isKeyboardVisible: $isKeyboardVisible)
+            // WelcomeView(isKeyboardVisible: $isKeyboardVisible)
             //}
         }
     }

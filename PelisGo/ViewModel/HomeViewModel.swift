@@ -32,6 +32,10 @@ class HomeViewModel: ObservableObject {
                 }
     }
     
+    func clearAllData() {
+        self.movieRepository.clearAllMovies()
+    }
+    
     func lazyFetchProducts() {
         if moviesList.isEmpty {
             fetchMovies()
