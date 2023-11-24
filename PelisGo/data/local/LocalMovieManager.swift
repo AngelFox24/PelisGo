@@ -8,14 +8,14 @@
 import Foundation
 import CoreData
 
-protocol MovieManager {
+protocol LoMovieManager {
     func addMovie(movie: Movie) -> Bool //C
     func getListMovies() -> [Movie] //R
     //func updateMovie(movie: Movie) //U
     func deleteMovie(movie: Movie) -> Bool //D
 }
 
-class LocalMovieManager: MovieManager {
+class LocalMovieManager: LoMovieManager {
     let mainContext: NSManagedObjectContext
     init(mainContext: NSManagedObjectContext) {
         self.mainContext = mainContext

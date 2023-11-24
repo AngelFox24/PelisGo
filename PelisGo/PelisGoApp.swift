@@ -13,9 +13,10 @@ struct PelisGoApp: App {
     var body: some Scene {
         WindowGroup {
             //Managers
-            let movieManager = LocalMovieManager(mainContext: mainContext)
+            let localMovieManager = LocalMovieManager(mainContext: mainContext)
+            let remoteMovieManager = RemoteMovieManager()
             //Repositories
-            let movieRepository = MovieRepositoryImpl(manager: movieManager)
+            let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
             //ViewModel
             let moviesListViewModel = MoviesListViewModel(movieRepository: movieRepository)
             ContentView()

@@ -12,15 +12,16 @@ class MoviesListViewModel: ObservableObject {
     let movieRepository: MovieRepository
     init(movieRepository: MovieRepository) {
         self.movieRepository = movieRepository
-        fetch()
+        fetchMovies()
     }
     // MARK: CRUD Core Data
-    func fetch() {
-        moviesList = movieRepository.getListMovies()
+    func fetchMovies() {
+        self.moviesList = self.movieRepository.getListMovies()
     }
+    
     func lazyFetchProducts() {
         if moviesList.isEmpty {
-            fetch()
+            fetchMovies()
         }
     }
 }

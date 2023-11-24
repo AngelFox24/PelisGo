@@ -11,6 +11,7 @@ struct MoviesListView: View {
     @EnvironmentObject var moviesListViewModel: MoviesListViewModel
     var body: some View {
         VStack(spacing: 0) {
+            /*
             if moviesListViewModel.moviesList.count == 0 {
                 VStack {
                     Button(action: {
@@ -28,14 +29,15 @@ struct MoviesListView: View {
                     })
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else {
+                */
+            //} else {
                 List {
                     ForEach(moviesListViewModel.moviesList) { movie in
                         MovieCardView(movie: movie)
                     }
                 }
                 .listStyle(PlainListStyle())
-            }
+            //}
         }
         .background(Color(.gray))
     }
@@ -43,10 +45,11 @@ struct MoviesListView: View {
 
 struct MoviesListView_Previews: PreviewProvider {
     static var previews: some View {
-        //Managers
-        let movieManager = LocalMovieManager(mainContext: PersistenceController.shared.viewContext)
+        
+        let localMovieManager = LocalMovieManager(mainContext: PersistenceController.shared.viewContext)
+        let remoteMovieManager = RemoteMovieManager()
         //Repositories
-        let movieRepository = MovieRepositoryImpl(manager: movieManager)
+        let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
         //ViewModel
         let moviesListViewModel = MoviesListViewModel(movieRepository: movieRepository)
         MoviesListView()

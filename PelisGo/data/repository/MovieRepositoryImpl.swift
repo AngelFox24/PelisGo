@@ -9,24 +9,40 @@ import Foundation
 
 protocol MovieRepository {
     func addMovie(movie: Movie) -> Bool //C
-    func getListMovies() -> [Movie] //R
+    func getListMovies() -> [Movie]
     //func updateMovie(movie: Movie) //U
     func deleteMovie(movie: Movie) -> Bool //D
 }
 
 class MovieRepositoryImpl: MovieRepository {
-    let manager: MovieManager
+    let localManager: LoMovieManager
+    let remoteManager: ReMovieManager
     // let remote:  remoto, se puede implementar el remoto aqui
-    init(manager: MovieManager) {
-        self.manager = manager
+    init(localManager: LoMovieManager, remoteManager: ReMovieManager) {
+        self.localManager = localManager
+        self.remoteManager = remoteManager
     }
     //C - Create
     func addMovie(movie: Movie) -> Bool {
-        self.manager.addMovie(movie: movie)
+        self.localManager.addMovie(movie: movie)
     }
     //R - Read
     func getListMovies() -> [Movie] {
-        return self.manager.getListMovies()
+        var movieList: [Movie] = []
+        self.remoteManager.getListMovies { [weak self] result in
+            switch result {
+            case .success(let movies):
+                // Actualizar la lista de películas y notificar a las vistas
+                DispatchQueue.main.async {
+                   movieList = movies
+                }
+            case .failure(let error):
+                print("Error al obtener la lista de películas: \(error.localizedDescription)")
+            }
+        }
+        print("return ok: \(movieList[1].title)")
+        return movieList
+        //return self.remoteManager.getListMovies(completion: completion)
     }
     //U - Update
     /*
@@ -36,6 +52,6 @@ class MovieRepositoryImpl: MovieRepository {
      */
     //D - Delete
     func deleteMovie(movie: Movie) -> Bool {
-        self.manager.deleteMovie(movie: movie)
+        self.localManager.deleteMovie(movie: movie)
     }
 }

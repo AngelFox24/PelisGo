@@ -28,6 +28,7 @@
 		27D9623B2B0FF1870037BD38 /* LocalMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9623A2B0FF1870037BD38 /* LocalMovieManager.swift */; };
 		27D9623D2B0FF1A30037BD38 /* MovieRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9623C2B0FF1A30037BD38 /* MovieRepositoryImpl.swift */; };
 		27D9623F2B0FF1B50037BD38 /* RemoteMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9623E2B0FF1B50037BD38 /* RemoteMovieManager.swift */; };
+		27D962412B1021500037BD38 /* TrendingResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D962402B1021500037BD38 /* TrendingResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		27D9623A2B0FF1870037BD38 /* LocalMovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMovieManager.swift; sourceTree = "<group>"; };
 		27D9623C2B0FF1A30037BD38 /* MovieRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryImpl.swift; sourceTree = "<group>"; };
 		27D9623E2B0FF1B50037BD38 /* RemoteMovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMovieManager.swift; sourceTree = "<group>"; };
+		27D962402B1021500037BD38 /* TrendingResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			children = (
 				27D9622F2B0FE3610037BD38 /* ImageUrl.swift */,
 				27D962352B0FEF9D0037BD38 /* Movie.swift */,
+				27D962402B1021500037BD38 /* TrendingResults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				27D962302B0FE3610037BD38 /* ImageUrl.swift in Sources */,
 				27D9623F2B0FF1B50037BD38 /* RemoteMovieManager.swift in Sources */,
 				27D962362B0FEF9D0037BD38 /* Movie.swift in Sources */,
+				27D962412B1021500037BD38 /* TrendingResults.swift in Sources */,
 				27D962342B0FEF1D0037BD38 /* MovieDetailViewModel.swift in Sources */,
 				27D962322B0FEF0A0037BD38 /* MoviesListViewModel.swift in Sources */,
 				27D962282B0FDDEA0037BD38 /* MovieCardView.swift in Sources */,

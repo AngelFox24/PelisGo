@@ -11,7 +11,7 @@ struct MovieCardView: View {
     var movie: Movie
     var body: some View {
         VStack(content: {
-            CustomAsyncImageView(id: movie.id, urlProducto: movie.posterPath, sizeWidth: 120, sizeHeight: 200)
+            CustomAsyncImageView(id: movie.id, urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200)
         })
     }
 }
@@ -19,9 +19,9 @@ struct MovieCardView: View {
 #Preview {
     HStack{
         Spacer()
-        MovieCardView(movie: Movie(id: 2142, title: "Perritos", posterPath: "https://image.tmdb.org/t/p/w500/aTvePCU7exLepwg5hWySjwxojQK.jpg", voteAverage: 12.2, releaseDate: Date(), overview: "ssdasf"))
+        MovieCardView(movie: Movie.preview)
         Spacer()
-        MovieCardView(movie: Movie(id: 51253, title: "Perritos", posterPath: "https://image.tmdb.org/t/p/w500/aTvePCU7exLepwg5hWySjwxojQK.jpg", voteAverage: 12.2, releaseDate: Date(), overview: "ssdasf"))
+        MovieCardView(movie: Movie.preview)
         Spacer()
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
