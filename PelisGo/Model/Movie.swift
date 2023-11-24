@@ -19,7 +19,7 @@ struct Movie: Identifiable, Decodable {
     var backdropURL: URL? {
         guard let baseURL = URL(string: "https://image.tmdb.org/t/p/w500"),
               let path = backdrop_path,
-              let url = URL(string: path, relativeTo: baseURL) else {
+              let url = URL(string: baseURL.absoluteString + path) else {
             return nil
         }
         return url
@@ -28,7 +28,7 @@ struct Movie: Identifiable, Decodable {
     var posterThumbnail: URL? {
         guard let baseURL = URL(string: "https://image.tmdb.org/t/p/w100"),
               let path = poster_path,
-              let url = URL(string: path, relativeTo: baseURL) else {
+              let url = URL(string: baseURL.absoluteString + path) else {
             return nil
         }
         return url
@@ -37,7 +37,7 @@ struct Movie: Identifiable, Decodable {
     var poster: URL? {
         guard let baseURL = URL(string: "https://image.tmdb.org/t/p/w500"),
               let path = poster_path,
-              let url = URL(string: path, relativeTo: baseURL) else {
+              let url = URL(string: baseURL.absoluteString + path) else {
             return nil
         }
         return url

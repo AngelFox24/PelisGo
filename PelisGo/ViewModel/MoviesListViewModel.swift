@@ -16,7 +16,17 @@ class MoviesListViewModel: ObservableObject {
     }
     // MARK: CRUD Core Data
     func fetchMovies() {
-        self.moviesList = self.movieRepository.getListMovies()
+        movieRepository.getListMovies { [weak self] result in
+                    switch result {
+                    case .success(let movies):
+                        // Actualizar la lista de películas y notificar a las vistas
+                        DispatchQueue.main.async {
+                            self?.moviesList = movies
+                        }
+                    case .failure(let error):
+                        print("Error al obtener la lista de películas: \(error.localizedDescription)")
+                    }
+                }
     }
     
     func lazyFetchProducts() {

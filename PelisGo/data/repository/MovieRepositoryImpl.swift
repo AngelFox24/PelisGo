@@ -9,7 +9,7 @@ import Foundation
 
 protocol MovieRepository {
     func addMovie(movie: Movie) -> Bool //C
-    func getListMovies() -> [Movie]
+    func getListMovies(completion: @escaping (Result<[Movie], APIError>) -> Void)
     //func updateMovie(movie: Movie) //U
     func deleteMovie(movie: Movie) -> Bool //D
 }
@@ -27,22 +27,8 @@ class MovieRepositoryImpl: MovieRepository {
         self.localManager.addMovie(movie: movie)
     }
     //R - Read
-    func getListMovies() -> [Movie] {
-        var movieList: [Movie] = []
-        self.remoteManager.getListMovies { [weak self] result in
-            switch result {
-            case .success(let movies):
-                // Actualizar la lista de películas y notificar a las vistas
-                DispatchQueue.main.async {
-                   movieList = movies
-                }
-            case .failure(let error):
-                print("Error al obtener la lista de películas: \(error.localizedDescription)")
-            }
-        }
-        print("return ok: \(movieList[1].title)")
-        return movieList
-        //return self.remoteManager.getListMovies(completion: completion)
+    func getListMovies(completion: @escaping (Result<[Movie], APIError>) -> Void) {
+        return self.remoteManager.getListMovies(completion: completion)
     }
     //U - Update
     /*

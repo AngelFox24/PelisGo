@@ -21,6 +21,7 @@ struct CustomAsyncImageView: View {
         self.imageProductNetwork = imageProductNetwork
         imageProductNetwork.getImage(id: id, url: (((URL(string: urlProducto ) ?? URL(string: "https://falabella.scene7.com/is/image/FalabellaPE/gsc_117581885_1813935_1?wid=1500&hei=1500&qlt=70"))!)))
         print("Se cargo la imagen en Init")
+        print("URL: \(urlProducto)")
     }
     var body: some View {
         HStack {
@@ -32,8 +33,9 @@ struct CustomAsyncImageView: View {
                     .cornerRadius(15.0)
             } else {
                 //PlaceHolder
-                Image("ProductoSinNombre")
-                    .resizable()
+                //Image("ProductoSinNombre")
+                Color.red
+                    //.resizable()
                     .frame(width: sizeWidth, height: sizeHeight)
                     .cornerRadius(15.0)
             }

@@ -11,7 +11,6 @@ struct MoviesListView: View {
     @EnvironmentObject var moviesListViewModel: MoviesListViewModel
     var body: some View {
         VStack(spacing: 0) {
-            /*
             if moviesListViewModel.moviesList.count == 0 {
                 VStack {
                     Button(action: {
@@ -29,15 +28,14 @@ struct MoviesListView: View {
                     })
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                */
-            //} else {
+            } else {
                 List {
                     ForEach(moviesListViewModel.moviesList) { movie in
                         MovieCardView(movie: movie)
                     }
                 }
                 .listStyle(PlainListStyle())
-            //}
+            }
         }
         .background(Color(.gray))
     }
