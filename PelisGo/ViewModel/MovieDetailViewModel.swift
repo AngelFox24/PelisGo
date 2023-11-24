@@ -9,19 +9,12 @@ import Foundation
 
 class MovieDetailViewModel: ObservableObject {
     @Published var movie: Movie?
-    /*
     let movieRepository: MovieRepository
     init(movieRepository: MovieRepository) {
         self.movieRepository = movieRepository
     }
-    // MARK: CRUD Core Data
-    func fetch() {
-        moviesList = movieRepository.getListMovies()
+    func saveCurrentMovie(movie: Movie) {
+        self.movie = movie
+        self.movieRepository.addMovie(movie: movie)
     }
-    func lazyFetchProducts() {
-        if moviesList.isEmpty {
-            fetch()
-        }
-    }
-     */
 }

@@ -19,8 +19,12 @@ struct PelisGoApp: App {
             let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
             //ViewModel
             let moviesListViewModel = MoviesListViewModel(movieRepository: movieRepository)
+            let movieDetailViewModel = MovieDetailViewModel(movieRepository: movieRepository)
+            let navManager = NavManager()
             ContentView()
                 .environmentObject(moviesListViewModel)
+                .environmentObject(movieDetailViewModel)
+                .environmentObject(navManager)
         }
     }
 }

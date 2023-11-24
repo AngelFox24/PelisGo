@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    @EnvironmentObject var movieDetailViewModel: MovieDetailViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let movieTitle = movieDetailViewModel.movie?.title {
+            Text("Movie: \(movieTitle)")
+        } else {
+            Text("Movie: Vacío")
+        }
     }
 }
 
-#Preview {
-    MovieDetailView()
+struct MovieDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        let localMovieManager = LocalMovieManager(mainContext: PersistenceController.shared.viewContext)
+        let remoteMovieManager = RemoteMovieManager()
+        //Repositories
+        let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
+        //ViewModel
+        let moviesListViewModel = MoviesListViewModel(movieRepository: movieRepository)
+        let movieDetailViewModel = MovieDetailViewModel(movieRepository: movieRepository)
+        MovieDetailView()
+            .environmentObject(moviesListViewModel)
+            .environmentObject(movieDetailViewModel)
+    }
 }

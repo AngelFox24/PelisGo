@@ -9,12 +9,13 @@ import SwiftUI
 
 struct MoviesListView: View {
     @EnvironmentObject var moviesListViewModel: MoviesListViewModel
+    @EnvironmentObject var movieDetailViewModel: MovieDetailViewModel
+    @EnvironmentObject var navManager: NavManager
     var body: some View {
         VStack(spacing: 0) {
             if moviesListViewModel.moviesList.count == 0 {
                 VStack {
                     Button(action: {
-                        //selectedTab = .plus
                     }, label: {
                         VStack(content: {
                             Image(systemName: "arrow.counterclockwise")
@@ -29,12 +30,25 @@ struct MoviesListView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                List {
-                    ForEach(moviesListViewModel.moviesList) { movie in
-                        MovieCardView(movie: movie)
+                VStack(content: {
+                    List {
+                        ForEach(moviesListViewModel.moviesList) { movie in
+                            MovieCardView(movie: movie)
+                                .onTapGesture {
+                                    movieDetailViewModel.saveCurrentMovie(movie: movie)
+                                    navManager.goToMovieDetail()
+                                }
+                        }
                     }
-                }
-                .listStyle(PlainListStyle())
+                    .listStyle(PlainListStyle())
+                })
+                .navigationDestination(for: NavPathsEnum.self, destination: { view in
+                    if view == .movieDetail {
+                        MovieDetailView()
+                    } else {
+                        let _ = print("Sin Ruta")
+                    }
+                })
             }
         }
         .background(Color(.gray))
@@ -50,7 +64,9 @@ struct MoviesListView_Previews: PreviewProvider {
         let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
         //ViewModel
         let moviesListViewModel = MoviesListViewModel(movieRepository: movieRepository)
+        let movieDetailViewModel = MovieDetailViewModel(movieRepository: movieRepository)
         MoviesListView()
             .environmentObject(moviesListViewModel)
+            .environmentObject(movieDetailViewModel)
     }
 }

@@ -15,34 +15,21 @@ struct Movie: Identifiable, Decodable {
     let overview: String
     let vote_average: Float
     let backdrop_path: String?
-
+    
     var backdropURL: URL? {
-        guard let baseURL = URL(string: "https://image.tmdb.org/t/p/w500"),
-              let path = backdrop_path,
-              let url = URL(string: baseURL.absoluteString + path) else {
-            return nil
-        }
-        return url
+        let baseURL = URL(string: "https://image.tmdb.org/t/p/w500")
+        return baseURL?.appending(path: backdrop_path ?? "")
     }
 
     var posterThumbnail: URL? {
-        guard let baseURL = URL(string: "https://image.tmdb.org/t/p/w100"),
-              let path = poster_path,
-              let url = URL(string: baseURL.absoluteString + path) else {
-            return nil
-        }
-        return url
+        let baseURL = URL(string: "https://image.tmdb.org/t/p/w100")
+        return baseURL?.appending(path: poster_path ?? "")
     }
 
     var poster: URL? {
-        guard let baseURL = URL(string: "https://image.tmdb.org/t/p/w500"),
-              let path = poster_path,
-              let url = URL(string: baseURL.absoluteString + path) else {
-            return nil
-        }
-        return url
+        let baseURL = URL(string: "https://image.tmdb.org/t/p/w500")
+        return baseURL?.appending(path: poster_path ?? "")
     }
-
     static var preview: Movie {
         return Movie(adult: false,
                      id: 23834,

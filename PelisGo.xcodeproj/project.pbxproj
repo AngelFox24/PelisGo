@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27B769B12B102FC000FB0D30 /* NavManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769B02B102FC000FB0D30 /* NavManager.swift */; };
 		27D961EC2B0FC7560037BD38 /* PelisGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */; };
 		27D961EE2B0FC7560037BD38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961ED2B0FC7560037BD38 /* ContentView.swift */; };
 		27D961F02B0FC7570037BD38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D961EF2B0FC7570037BD38 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27B769B02B102FC000FB0D30 /* NavManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavManager.swift; sourceTree = "<group>"; };
 		27D961E82B0FC7560037BD38 /* PelisGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PelisGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoApp.swift; sourceTree = "<group>"; };
 		27D961ED2B0FC7560037BD38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27B769AF2B102FAC00FB0D30 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				27B769B02B102FC000FB0D30 /* NavManager.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		27D961DF2B0FC7560037BD38 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +203,7 @@
 		27D9621D2B0FCB370037BD38 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				27B769AF2B102FAC00FB0D30 /* Navigation */,
 				27D9622D2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift */,
 				27D962312B0FEF0A0037BD38 /* MoviesListViewModel.swift */,
 				27D962332B0FEF1D0037BD38 /* MovieDetailViewModel.swift */,
@@ -425,6 +436,7 @@
 				27D9622E2B0FE0D70037BD38 /* ImageProductNetworkViewModel.swift in Sources */,
 				27D962302B0FE3610037BD38 /* ImageUrl.swift in Sources */,
 				27D9623F2B0FF1B50037BD38 /* RemoteMovieManager.swift in Sources */,
+				27B769B12B102FC000FB0D30 /* NavManager.swift in Sources */,
 				27D962362B0FEF9D0037BD38 /* Movie.swift in Sources */,
 				27D962412B1021500037BD38 /* TrendingResults.swift in Sources */,
 				27D962342B0FEF1D0037BD38 /* MovieDetailViewModel.swift in Sources */,
@@ -602,7 +614,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -632,7 +644,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
