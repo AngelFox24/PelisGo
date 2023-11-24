@@ -17,7 +17,7 @@ protocol ReMovieManager {
     func getListMovies(completion: @escaping (Result<[Movie], APIError>) -> Void)
 }
 class RemoteMovieManager: ReMovieManager {
-    static let apiKey = "f46b58478f489737ad5a4651a4b25079x"
+    static let apiKey = "f46b58478f489737ad5a4651a4b25079"
     func getListMovies(completion: @escaping (Result<[Movie], APIError>) -> Void) {
         // URL de la API
         guard let apiUrl = URL(string: "https://api.themoviedb.org/3/trending/movie/day?api_key=\(RemoteMovieManager.apiKey)") else {
