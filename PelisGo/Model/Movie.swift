@@ -15,6 +15,7 @@ struct Movie: Identifiable, Decodable {
     let overview: String
     let vote_average: Float
     let backdrop_path: String?
+    let release_date : String?
     
     var backdropURL: URL? {
         let baseURL = URL(string: "https://image.tmdb.org/t/p/w500")
@@ -30,6 +31,23 @@ struct Movie: Identifiable, Decodable {
         let baseURL = URL(string: "https://image.tmdb.org/t/p/w500")
         return baseURL?.appending(path: poster_path ?? "")
     }
+    
+    var release_date_converted : Date? {
+        guard let date = release_date else {
+            return nil
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        if let dateConverted = dateFormatter.date(from: date) {
+            print("Fecha convertida: \(date)")
+            return dateConverted
+        } else {
+            print("No se pudo convertir la fecha.")
+            return nil
+        }
+    }
+    
     static var preview: Movie {
         return Movie(adult: false,
                      id: 23834,
@@ -37,6 +55,7 @@ struct Movie: Identifiable, Decodable {
                      title: "Free Guy",
                      overview: "some demo text here",
                      vote_average: 5.5,
-                     backdrop_path: "/kKxwzAbrA2mY7ixsO3f9uLF7S6v.jpg")
+                     backdrop_path: "/kKxwzAbrA2mY7ixsO3f9uLF7S6v.jpg",
+                     release_date: "2023-07-19")
     }
 }

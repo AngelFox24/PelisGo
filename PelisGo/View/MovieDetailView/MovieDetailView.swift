@@ -43,26 +43,31 @@ struct MovieDetailView_Previews: PreviewProvider {
 struct MovieDetailViewScroll: View {
     @EnvironmentObject var movieDetailViewModel: MovieDetailViewModel
     let movie = Movie.preview
+    
     var body: some View {
         ScrollView(content: {
-            if let movieDe = movieDetailViewModel.movie {VStack(spacing: 0, content: {
-                ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {
-                    CustomAsyncImageView(id: movieDe.id.description + "_backdrop_path", urlProducto: movieDe.backdropURL?.absoluteString ?? "", sizeWidth: .infinity, sizeHeight: 210, contendMode: .fill)
+            if let movie = movieDetailViewModel.movie {VStack(spacing: 0, content: {
+                VStack(spacing: 0, content: {
+                    ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {
+                        CustomAsyncImageView(id: movie.id.description + "_backdrop_path", urlProducto: movie.backdropURL?.absoluteString ?? "", sizeWidth: .infinity, sizeHeight: 210, contendMode: .fill)
+                        HStack(content: {
+                            Spacer()
+                            CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, contendMode: .fit)
+                        })
+                        .frame(maxWidth: .infinity)
+                    })
                     HStack(content: {
                         Spacer()
-                        CustomAsyncImageView(id: movieDe.id.description + "_poster_path", urlProducto: movieDe.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, contendMode: .fit)
+                        Text(String(movie.vote_average))
+                        Spacer()
+                        if let date = movie.release_date_converted {
+                            Text(date.getDateFormat(dateFormat: "dd/MM/yyyy"))
+                        }
+                        Spacer()
                     })
-                    .frame(maxWidth: .infinity)
+                    .padding(.top, 20)
+                    Text(movie.overview)
                 })
-                HStack(content: {
-                    Spacer()
-                    Text(String(movieDe.vote_average))
-                    Spacer()
-                    Text("Date")
-                    Spacer()
-                })
-                .padding(.top, 20)
-                Text(movieDe.overview)
             })
             } else {
                 VStack(spacing: 0, content: {
@@ -78,9 +83,12 @@ struct MovieDetailViewScroll: View {
                         Spacer()
                         Text(String(movie.vote_average))
                         Spacer()
-                        Text("Date")
+                        if let date = movie.release_date_converted {
+                            Text(date.getDateFormat(dateFormat: "dd/MM/yyyy"))
+                        }
                         Spacer()
                     })
+                    .padding(.top, 20)
                     Text(movie.overview)
                 })
             }

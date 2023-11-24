@@ -31,7 +31,7 @@ struct CustomAsyncImageView: View {
                 imageC
                     .resizable()
                     .aspectRatio(contentMode: contendMode)
-                    .frame(width: sizeWidth, height: sizeHeight)
+                    .frame(maxWidth: sizeWidth, minHeight: sizeHeight)
             } else {
                 Color.red
                     .frame(width: 120, height: 200)
