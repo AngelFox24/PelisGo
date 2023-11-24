@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27B769B12B102FC000FB0D30 /* NavManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769B02B102FC000FB0D30 /* NavManager.swift */; };
+		27B769B32B103E0700FB0D30 /* CustomTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B769B22B103E0700FB0D30 /* CustomTopBarView.swift */; };
 		27D961EC2B0FC7560037BD38 /* PelisGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */; };
 		27D961EE2B0FC7560037BD38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961ED2B0FC7560037BD38 /* ContentView.swift */; };
 		27D961F02B0FC7570037BD38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D961EF2B0FC7570037BD38 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		27B769B02B102FC000FB0D30 /* NavManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavManager.swift; sourceTree = "<group>"; };
+		27B769B22B103E0700FB0D30 /* CustomTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopBarView.swift; sourceTree = "<group>"; };
 		27D961E82B0FC7560037BD38 /* PelisGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PelisGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoApp.swift; sourceTree = "<group>"; };
 		27D961ED2B0FC7560037BD38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				27D9622B2B0FE05C0037BD38 /* CustomAsyncImageView.swift */,
+				27B769B22B103E0700FB0D30 /* CustomTopBarView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				27D962412B1021500037BD38 /* TrendingResults.swift in Sources */,
 				27D962342B0FEF1D0037BD38 /* MovieDetailViewModel.swift in Sources */,
 				27D962322B0FEF0A0037BD38 /* MoviesListViewModel.swift in Sources */,
+				27B769B32B103E0700FB0D30 /* CustomTopBarView.swift in Sources */,
 				27D962282B0FDDEA0037BD38 /* MovieCardView.swift in Sources */,
 				27D961F82B0FC7570037BD38 /* PelisGo.xcdatamodeld in Sources */,
 			);

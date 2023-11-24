@@ -14,7 +14,7 @@ class ImageProductNetworkViewModel: ObservableObject {
     @Published var imageProduct: Image?
     // Image("ProductoSinNombre")
     var suscriber = Set<AnyCancellable>()
-    func getImage(id: Int, url: URL) {
+    func getImage(id: String, url: URL) {
         if imageProduct != nil { // imagen ya cargada en memoria
             print("Imagen ya esta cargada para que quieres cargarlo pz")
             return
@@ -52,7 +52,7 @@ class ImageProductNetworkViewModel: ObservableObject {
             }
         }
     }
-    func saveImage(id: Int, image: UIImage, url: String) -> Bool {
+    func saveImage(id: String, image: UIImage, url: String) -> Bool {
         var savedImage = false
         guard let libraryDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first else {
             return false
@@ -64,7 +64,7 @@ class ImageProductNetworkViewModel: ObservableObject {
             print("Error al crear el directorio de imágenes: \(error)")
             return false
         }
-        let fileURL = imagesDirectory.appendingPathComponent(String(id) + ".jpeg")
+        let fileURL = imagesDirectory.appendingPathComponent(id + ".jpeg")
         if let data = image.jpegData(compressionQuality: 1.0) {
             do {
                 // Guardar la imagen en el dispositivo
@@ -77,19 +77,19 @@ class ImageProductNetworkViewModel: ObservableObject {
         return savedImage
     }
     
-    func loadSavedImage(id: Int) -> UIImage? {
+    func loadSavedImage(id: String) -> UIImage? {
         print("Se entro a verificar si hay imagen guarda")
         guard let libraryDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first else {
             return nil
         }
         let imagesDirectory = libraryDirectory.appendingPathComponent("Images")
-        let fileURL = imagesDirectory.appendingPathComponent(String(id) + ".jpeg")
+        let fileURL = imagesDirectory.appendingPathComponent(id + ".jpeg")
         if let imageData = try? Data(contentsOf: fileURL) {
-            print("Se obtuvo la imgen desde el dispositivo \(String(id))")
+            print("Se obtuvo la imgen desde el dispositivo \(id)")
             print("Ruta de la imagen guardada: \(fileURL.path)")
             return UIImage(data: imageData)
         } else {
-            print("No se pudo obtener la imagen \(String(id)).jpeg")
+            print("No se pudo obtener la imagen \(id).jpeg")
         }
         return nil
     }
