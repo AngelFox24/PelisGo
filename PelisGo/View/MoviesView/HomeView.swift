@@ -56,21 +56,39 @@ struct HomeView: View {
             } else {
                 VStack(content: {
                     List {
-                        //LazyVGrid(columns: [GridItem(.flexible(), spacing: 10),GridItem(.flexible(), spacing: 10),GridItem(.flexible(), spacing: 10)], spacing: 1) {
-                            ForEach(homeViewModel.moviesList) { movie in
+                        ForEach(homeViewModel.moviesList) { movie in
+                            HStack(content: {
                                 MovieCardView(movie: movie, save: false)
-                                    .onTapGesture {
-                                        detailViewModel.saveCurrentMovie(movie: movie)
-                                        navManager.goToMovieDetail()
+                                VStack(alignment:.leading) {
+                                    Spacer()
+                                    Text(movie.title)
+                                        .foregroundColor(.black)
+                                        .font(.headline)
+                                    Spacer()
+                                    HStack {
+                                        VoteView(voteAverage: movie.vote_average)
+                                        Spacer()
+                                        Image(systemName: "calendar")
+                                        Text(String(movie.release_date_converted?.getDateComponent(dateComponent: .year) ?? 0))
                                     }
-                                    .onAppear(perform: {
-                                        if homeViewModel.shouldLoadData(movie: movie) {
-                                            print("Cargandoooooo")
-                                            homeViewModel.fetchNextPage()
-                                        }
-                                    })
+                                    .foregroundColor(.yellow)
+                                    .fontWeight(.heavy)
+                                    Spacer()
+                                }
+                            })
+                            .onTapGesture {
+                                detailViewModel.saveCurrentMovie(movie: movie)
+                                navManager.goToMovieDetail()
                             }
-                        //}
+                            .onAppear(perform: {
+                                if homeViewModel.shouldLoadData(movie: movie) {
+                                    print("Cargandoooooo")
+                                    homeViewModel.fetchNextPage()
+                                }
+                            })
+                            .listRowSeparator(.hidden)
+                        }
+                        .listRowSeparator(.hidden)
                     }
                     .listStyle(PlainListStyle())
                 })
@@ -104,5 +122,13 @@ struct HomeView_Previews: PreviewProvider {
             .environmentObject(homeViewModel)
             .environmentObject(detailViewModel)
             .environmentObject(navManager)
+    }
+}
+
+struct VoteView: View {
+    var voteAverage: Float
+    var body: some View {
+        Image(systemName: "hand.thumbsup.fill")
+        Text(String(format: "%.1f", voteAverage))
     }
 }

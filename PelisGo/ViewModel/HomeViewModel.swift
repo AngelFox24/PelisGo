@@ -40,11 +40,9 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchNextPage() {
-        if currentPage < 3 {
-            currentPage = currentPage + 1
-            print("Current: \(currentPage)")
-            fetchMovies(page: currentPage)
-        }
+        currentPage = currentPage + 1
+        print("Current: \(currentPage)")
+        fetchMovies(page: currentPage)
     }
     
     func clearAllData() {

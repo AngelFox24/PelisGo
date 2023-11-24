@@ -58,13 +58,16 @@ struct MovieDetailViewScroll: View {
                     })
                     HStack(content: {
                         Spacer()
-                        Text(String(movie.vote_average))
+                        VoteView(voteAverage: movie.vote_average)
                         Spacer()
                         if let date = movie.release_date_converted {
-                            Text(date.getDateFormat(dateFormat: "dd/MM/yyyy"))
+                            Image(systemName: "calendar")
+                            Text(String(date.getDateFormat(dateFormat: "dd/MM/yyyy") ))
+                            Spacer()
                         }
-                        Spacer()
                     })
+                    .foregroundColor(.yellow)
+                    .fontWeight(.heavy)
                     .padding(.top, 20)
                     Text(movie.overview)
                 })
