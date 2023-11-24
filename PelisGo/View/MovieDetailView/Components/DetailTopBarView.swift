@@ -20,6 +20,7 @@ struct DetailTopBarView: View {
                 })
                 Spacer()
                 Text(tittle)
+                    .font(.custom("Artifika-Regular", size: 20))
                 Spacer()
             })
         }

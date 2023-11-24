@@ -11,28 +11,6 @@ struct HomeView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var detailViewModel: DetailViewModel
     @EnvironmentObject var navManager: NavManager
-    @AppStorage("homeViewColumns") var hasHomeViewColumns: Int?
-    private let spacingI: CGFloat = 10
-    private var gridItem = GridItem(.flexible(), spacing: 1)
-    private var homeViewCols: [GridItem] = [GridItem(.flexible(), spacing: 10),GridItem(.flexible(), spacing: 10),GridItem(.flexible(), spacing: 10)]
-    init() {
-        /*
-        gridItem = GridItem(.flexible(), spacing: spacingI)
-        let screenWidth: Double = UIScreen.main.bounds.size.width
-        let cardViewWidth = 120.0
-        let colsD = screenWidth / (cardViewWidth + Double(spacingI))
-        print("Columnas Double : \(colsD)")
-        let colsI = Int(colsD.rounded())
-        print("Columnas Int : \(colsI)")
-        hasHomeViewColumns = colsI
-        var colsTemp = colsI
-        while colsTemp >= 1 {
-            homeViewCols.append(gridItem)
-            colsTemp = colsTemp - 1
-        }
-        print("Cols Count : \(homeViewCols.count)")
-         */
-    }
     var body: some View {
         VStack(spacing: 0) {
             HomeTopBarView()
@@ -57,34 +35,37 @@ struct HomeView: View {
                 VStack(content: {
                     List {
                         ForEach(homeViewModel.moviesList) { movie in
-                            HStack(content: {
-                                MovieCardView(movie: movie, save: false)
-                                VStack(alignment:.leading) {
-                                    Spacer()
-                                    Text(movie.title)
-                                        .foregroundColor(.black)
-                                        .font(.headline)
-                                    Spacer()
-                                    HStack {
-                                        VoteView(voteAverage: movie.vote_average)
-                                        Spacer()
-                                        Image(systemName: "calendar")
-                                        Text(String(movie.release_date_converted?.getDateComponent(dateComponent: .year) ?? 0))
-                                    }
-                                    .foregroundColor(.yellow)
-                                    .fontWeight(.heavy)
-                                    Spacer()
-                                }
-                            })
-                            .onTapGesture {
+                            Button(action: {
                                 detailViewModel.saveCurrentMovie(movie: movie)
                                 navManager.goToMovieDetail()
-                            }
-                            .onAppear(perform: {
-                                if homeViewModel.shouldLoadData(movie: movie) {
-                                    print("Cargandoooooo")
-                                    homeViewModel.fetchNextPage()
-                                }
+                            }, label: {
+                                HStack(content: {
+                                    MovieCardView(movie: movie, save: false)
+                                    VStack(alignment:.leading) {
+                                        Spacer()
+                                        Text(movie.title)
+                                            .foregroundColor(.black)
+                                            .font(.custom("Artifika-Regular", size: 20))
+                                            .font(.headline)
+                                        Spacer()
+                                        HStack {
+                                            VoteView(voteAverage: movie.vote_average)
+                                            Spacer()
+                                            Image(systemName: "calendar")
+                                            Text(String(movie.release_date_converted?.getDateComponent(dateComponent: .year) ?? 0))
+                                        }
+                                        .foregroundColor(.yellow)
+                                        .font(.custom("Artifika-Regular", size: 20))
+                                        Spacer()
+                                    }
+                                })
+                                .border(Color.red)
+                                .onAppear(perform: {
+                                    if homeViewModel.shouldLoadData(movie: movie) {
+                                        print("Cargandoooooo")
+                                        homeViewModel.fetchNextPage()
+                                    }
+                                })
                             })
                             .listRowSeparator(.hidden)
                         }
@@ -94,7 +75,9 @@ struct HomeView: View {
                 })
                 .navigationDestination(for: NavPathsEnum.self, destination: { view in
                     if view == .movieDetail {
-                        MovieDetailView()
+                        withAnimation {
+                            MovieDetailView()
+                        }
                     } else {
                         let _ = print("Sin Ruta")
                     }
@@ -128,7 +111,9 @@ struct HomeView_Previews: PreviewProvider {
 struct VoteView: View {
     var voteAverage: Float
     var body: some View {
-        Image(systemName: "hand.thumbsup.fill")
-        Text(String(format: "%.1f", voteAverage))
+        HStack(content: {
+            Image(systemName: "hand.thumbsup.fill")
+            Text(String(format: "%.1f", voteAverage))
+        })
     }
 }

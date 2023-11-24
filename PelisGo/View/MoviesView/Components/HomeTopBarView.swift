@@ -34,6 +34,7 @@ struct HomeTopBarView: View {
         HStack {
             Spacer()
             Text("Pelis Go")
+                .font(.custom("Artifika-Regular", size: 20))
             Spacer()
             HStack(content: {
                 Menu {

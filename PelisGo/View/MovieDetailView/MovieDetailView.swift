@@ -42,19 +42,14 @@ struct MovieDetailView_Previews: PreviewProvider {
 
 struct MovieDetailViewScroll: View {
     @EnvironmentObject var detailViewModel: DetailViewModel
+    @Namespace var nameSpace
     let movie = Movie.preview
-    
     var body: some View {
         ScrollView(content: {
             if let movie = detailViewModel.movie {
                 VStack(spacing: 0, content: {
-                    ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {
+                    HStack(content: {
                         CustomAsyncImageView(id: movie.id.description + "_backdrop_path", urlProducto: movie.backdropURL?.absoluteString ?? "", sizeWidth: .infinity, sizeHeight: 210, contendMode: .fill)
-                        HStack(content: {
-                            Spacer()
-                            CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, contendMode: .fit)
-                        })
-                        .frame(maxWidth: .infinity)
                     })
                     HStack(content: {
                         Spacer()
@@ -67,9 +62,19 @@ struct MovieDetailViewScroll: View {
                         }
                     })
                     .foregroundColor(.yellow)
-                    .fontWeight(.heavy)
+                    .font(.custom("Artifika-Regular", size: 25))
                     .padding(.top, 20)
-                    Text(movie.overview)
+                    HStack(spacing: 5, content: {
+                        CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, contendMode: .fit)
+                        Text(movie.overview)
+                            .multilineTextAlignment(.center)
+                            .font(.custom("Artifika-Regular", size: 20))
+                            .padding(.horizontal, 15)
+                            .padding(.top, 15)
+                    })
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 10)
+                    .padding(.horizontal, 10)
                 })
             } else {
                 VStack(spacing: 0, content: {
@@ -92,6 +97,8 @@ struct MovieDetailViewScroll: View {
                     })
                     .padding(.top, 20)
                     Text(movie.overview)
+                        .font(.custom("Artifika-Regular", size: 20))
+                        .padding(.horizontal, 15)
                 })
             }
         })
