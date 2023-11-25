@@ -14,6 +14,7 @@ class DetailViewModel: ObservableObject {
         self.saveMovieUseCase = saveMovieUseCase
     }
     func saveCurrentMovie(movie: Movie) {
+        self.movie = movie
         self.saveMovieUseCase.execute(movie: movie)
     }
 }

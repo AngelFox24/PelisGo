@@ -40,6 +40,7 @@ class MovieRepositoryImpl: MovieRepository {
                 dispatchGroup.leave()
             case .failure(let error):
                 moviesResult = self?.getListMoviesBackUp() ?? []
+                print("Error Network: \(error)")
                 dispatchGroup.leave()
             }
         }
