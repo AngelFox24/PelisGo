@@ -17,9 +17,7 @@ struct MoviesListView: View {
                         //selectedTab = .plus
                     }, label: {
                         VStack(content: {
-                            Image(systemName: "arrow.counterclockwise")
-                                .font(.custom("Artifika-Regular", size: 90))
-                                .foregroundColor(.blue)
+                            Image(systemName: "arrow.counterclockwise").font(.custom("Artifika-Regular", size: 90)).foregroundColor(.blue)
                             Text("Recargar.")
                                 .foregroundColor(.blue)
                                 .padding(.horizontal, 20)
