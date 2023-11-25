@@ -29,10 +29,15 @@ struct ContentView_Previews: PreviewProvider {
         let remoteMovieManager = RemoteMovieManager()
         //Repositories
         let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
+        //UseCases
+        let logInUseCase = LogInInteractor()
+        let getMoviesUseCase = GetMovieInteractor(movieRepository: movieRepository)
+        let saveMovieUseCase = SaveMovieInteractor(movieRepository: movieRepository)
+        let clearAllMoviesUseCase = ClearAllMoviesInteractor(movieRepository: movieRepository)
         //ViewModel
-        let logInViewModel = LogInViewModel()
-        let homeViewModel = HomeViewModel(movieRepository: movieRepository)
-        let detailViewModel = DetailViewModel(movieRepository: movieRepository)
+        let logInViewModel = LogInViewModel(logInUseCase: logInUseCase)
+        let homeViewModel = HomeViewModel(getMoviesUseCase: getMoviesUseCase, clearAllMoviesUseCase: clearAllMoviesUseCase)
+        let detailViewModel = DetailViewModel(saveMovieUseCase: saveMovieUseCase)
         let navManager = NavManager()
         ContentView()
             .environmentObject(logInViewModel)

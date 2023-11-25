@@ -15,21 +15,40 @@ enum LogInStatus {
 class LogInViewModel: ObservableObject {
     @Published var logInStatus: LogInStatus = .success
     @Published var logInFields: LogInFields = LogInFields()
+    
+    private let logInUseCase: LogInUseCase
+    
+    init(logInUseCase: LogInUseCase) {
+        self.logInUseCase = logInUseCase
+    }
+    
     func fieldsTrue() {
         print("All value true")
         logInFields.userEdited = true
         logInFields.passwordEdited = true
     }
+    
     func logIn() {
-        if (logInFields.user == "Admin") && (logInFields.password == "Password*123") {
+        logInUseCase.logIn(user: logInFields.user, password: logInFields.password) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.handleLogInResult(result)
+            }
+        }
+    }
+    
+    private func handleLogInResult(_ result: LogInStatus) {
+        switch result {
+        case .success:
             self.logInStatus = .success
-        } else {
+        case .fail:
             logInFields.errorLogIn = "Usuario o Contraseña incorrectos"
         }
     }
+    
     func logOut() {
         logInStatus = .fail
     }
+    
 }
 
 class LogInFields {

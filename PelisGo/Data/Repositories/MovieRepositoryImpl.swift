@@ -9,9 +9,8 @@ import Foundation
 
 protocol MovieRepository {
     func addMovie(movie: Movie) -> Bool //C
-    func getListMovies(page: Int, completion: @escaping (Result<[Movie], APIError>) -> Void)
+    func getListMovies(page: Int) -> [Movie]
     func getListMoviesBackUp() -> [Movie]
-    //func updateMovie(movie: Movie) //U
     func clearAllMovies() -> Bool //D
     
 }
@@ -19,7 +18,6 @@ protocol MovieRepository {
 class MovieRepositoryImpl: MovieRepository {
     let localManager: LoMovieManager
     let remoteManager: ReMovieManager
-    // let remote:  remoto, se puede implementar el remoto aqui
     init(localManager: LoMovieManager, remoteManager: ReMovieManager) {
         self.localManager = localManager
         self.remoteManager = remoteManager
@@ -29,20 +27,32 @@ class MovieRepositoryImpl: MovieRepository {
         self.localManager.addMovie(movie: movie)
     }
     //R - Read
-    func getListMovies(page: Int, completion: @escaping (Result<[Movie], APIError>) -> Void) {
-        return self.remoteManager.getListMovies(page: page, completion: completion)
-    }
-    func getListMoviesBackUp() -> [Movie] {
-        let movies = self.localManager.getListMovies()
-        return movies
-    }
-    //U - Update
-    /*
-    func updateMovie(movie: Movie) {
+    func getListMovies(page: Int) -> [Movie] {
+        var moviesResult: [Movie] = []
+        let dispatchGroup = DispatchGroup()
         
+        dispatchGroup.enter()
+        
+        self.remoteManager.getListMovies(page: page) { [weak self] result in
+            switch result {
+            case .success(let movies):
+                moviesResult = movies
+                dispatchGroup.leave()
+            case .failure(let error):
+                moviesResult = self?.getListMoviesBackUp() ?? []
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.wait()
+        
+        return moviesResult
     }
-     */
-    //D - Delete
+    
+    func getListMoviesBackUp() -> [Movie] {
+        return self.localManager.getListMovies()
+    }
+    
     func clearAllMovies() -> Bool {
         self.localManager.clearAllMovies()
     }

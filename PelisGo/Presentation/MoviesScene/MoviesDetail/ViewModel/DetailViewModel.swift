@@ -9,12 +9,11 @@ import Foundation
 
 class DetailViewModel: ObservableObject {
     @Published var movie: Movie?
-    let movieRepository: MovieRepository
-    init(movieRepository: MovieRepository) {
-        self.movieRepository = movieRepository
+    let saveMovieUseCase: SaveMovieUseCase
+    init(saveMovieUseCase: SaveMovieUseCase) {
+        self.saveMovieUseCase = saveMovieUseCase
     }
     func saveCurrentMovie(movie: Movie) {
-        self.movie = movie
-        self.movieRepository.addMovie(movie: movie)
+        self.saveMovieUseCase.execute(movie: movie)
     }
 }
