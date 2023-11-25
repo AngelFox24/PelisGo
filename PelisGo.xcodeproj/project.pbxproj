@@ -20,6 +20,7 @@
 		27D04FA72B1258E8004B5651 /* GetMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D04FA62B1258E8004B5651 /* GetMoviesUseCase.swift */; };
 		27D04FA92B125EE9004B5651 /* SaveMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D04FA82B125EE9004B5651 /* SaveMovieUseCase.swift */; };
 		27D04FAC2B126268004B5651 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D04FAB2B126268004B5651 /* Dependencies.swift */; };
+		27D04FAF2B12719D004B5651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27D04FB12B12719D004B5651 /* Localizable.strings */; };
 		27D961EC2B0FC7560037BD38 /* PelisGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */; };
 		27D961EE2B0FC7560037BD38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961ED2B0FC7560037BD38 /* ContentView.swift */; };
 		27D961F02B0FC7570037BD38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D961EF2B0FC7570037BD38 /* Assets.xcassets */; };
@@ -74,6 +75,8 @@
 		27D04FA62B1258E8004B5651 /* GetMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesUseCase.swift; sourceTree = "<group>"; };
 		27D04FA82B125EE9004B5651 /* SaveMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMovieUseCase.swift; sourceTree = "<group>"; };
 		27D04FAB2B126268004B5651 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		27D04FB02B12719D004B5651 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		27D04FB22B1271A2004B5651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27D961E82B0FC7560037BD38 /* PelisGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PelisGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoApp.swift; sourceTree = "<group>"; };
 		27D961ED2B0FC7560037BD38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -289,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				27D961EF2B0FC7570037BD38 /* Assets.xcassets */,
+				27D04FB12B12719D004B5651 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -521,11 +525,12 @@
 			};
 			buildConfigurationList = 27D961E32B0FC7560037BD38 /* Build configuration list for PBXProject "PelisGo" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "es-419";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = 27D961DF2B0FC7560037BD38;
 			productRefGroup = 27D961E92B0FC7560037BD38 /* Products */;
@@ -545,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27D961F32B0FC7570037BD38 /* Preview Assets.xcassets in Resources */,
+				27D04FAF2B12719D004B5651 /* Localizable.strings in Resources */,
 				27D961F02B0FC7570037BD38 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,6 +639,18 @@
 			targetProxy = 27D962082B0FC7570037BD38 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27D04FB12B12719D004B5651 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27D04FB02B12719D004B5651 /* es-419 */,
+				27D04FB22B1271A2004B5651 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		27D9620F2B0FC7570037BD38 /* Debug */ = {
