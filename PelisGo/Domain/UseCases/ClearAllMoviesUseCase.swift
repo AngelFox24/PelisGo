@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ClearAllMoviesUseCase {
-    func execute()
+    @discardableResult
+    func execute() -> Bool
 }
 
 class ClearAllMoviesInteractor: ClearAllMoviesUseCase {
@@ -17,8 +18,8 @@ class ClearAllMoviesInteractor: ClearAllMoviesUseCase {
     init(movieRepository: MovieRepository) {
         self.movieRepository = movieRepository
     }
-
-    func execute() {
-        movieRepository.clearAllMovies()
+    
+    func execute() -> Bool {
+        return movieRepository.clearAllMovies()
     }
 }

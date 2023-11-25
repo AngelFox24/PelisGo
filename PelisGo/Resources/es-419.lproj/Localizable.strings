@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  PelisGo
+
+  Created by Angel Curi Laurente on 25/11/23.
+  
+*/
+"Description" = "Descripción";
+"Release Date" = "Fecha de lanzamiento";
+"Error" = "Error";
+"No internet connection" = "Sin conexión a internet";
+"Failed loading movies" = "Error al descargar películas";
