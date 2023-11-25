@@ -8,7 +8,8 @@
 import Foundation
 
 protocol SaveMovieUseCase {
-    func execute(movie: Movie)
+    @discardableResult
+    func execute(movie: Movie) -> Bool
 }
 
 class SaveMovieInteractor: SaveMovieUseCase {
@@ -18,7 +19,7 @@ class SaveMovieInteractor: SaveMovieUseCase {
         self.movieRepository = movieRepository
     }
     
-    func execute(movie: Movie) {
-        self.movieRepository.addMovie(movie: movie)
+    func execute(movie: Movie) -> Bool {
+        return self.movieRepository.addMovie(movie: movie)
     }
 }
