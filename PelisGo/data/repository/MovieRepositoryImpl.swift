@@ -33,14 +33,7 @@ class MovieRepositoryImpl: MovieRepository {
         return self.remoteManager.getListMovies(page: page, completion: completion)
     }
     func getListMoviesBackUp() -> [Movie] {
-        print("Se ingreso a Repo")
         let movies = self.localManager.getListMovies()
-        for movie in movies {
-            print("Repository")
-            print("id: \(String(describing: movie.id))")
-            print("Titulo: \(String(describing: movie.title))")
-            print("URL: \(String(describing: movie.poster_path))")
-        }
         return movies
     }
     //U - Update

@@ -53,9 +53,6 @@ class HomeViewModel: ObservableObject {
         if moviesList.isEmpty {
             return false
         } else {
-            if movie == moviesList.last {
-                print("Porque?: \(movie.title) and \(moviesList.last?.title)")
-            }
             return movie == moviesList.last
         }
     }

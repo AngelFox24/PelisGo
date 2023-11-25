@@ -45,10 +45,8 @@ struct Movie: Identifiable, Decodable, Equatable {
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         if let dateConverted = dateFormatter.date(from: date) {
-            print("Fecha convertida: \(date)")
             return dateConverted
         } else {
-            print("No se pudo convertir la fecha.")
             return nil
         }
     }
