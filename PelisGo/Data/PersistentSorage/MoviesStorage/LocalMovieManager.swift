@@ -10,7 +10,7 @@ import CoreData
 
 protocol LoMovieManager {
     func addMovie(movie: Movie) -> Bool //C
-    func getListMovies() -> [Movie] //R
+    func getListMovies(page: Int, pageSize: Int) -> [Movie] //R
     //func updateMovie(movie: Movie) //U
     func clearAllMovies() -> Bool //D
 }
@@ -61,19 +61,19 @@ class LocalMovieManager: LoMovieManager {
         }
     }
     //R - Read
-    func getListMovies() -> [Movie] {
+    func getListMovies(page: Int, pageSize: Int) -> [Movie] {
         var moviesEntityList: [CD_Movie] = []
+        
         let request: NSFetchRequest<CD_Movie> = CD_Movie.fetchRequest()
+        
+        // Configurar paginación
+        request.fetchLimit = pageSize
+        request.fetchOffset = (page - 1) * pageSize
+        
         do {
             moviesEntityList = try self.mainContext.fetch(request)
         } catch let error {
             print("Error fetching. \(error)")
-        }
-        for movie in moviesEntityList {
-            print("Local")
-            print("id: \(String(describing: movie.id))")
-            print("Titulo: \(String(describing: movie.title))")
-            print("URL: \(String(describing: movie.poster_path))")
         }
         return moviesEntityList.compactMap{$0.toMovie()}
     }

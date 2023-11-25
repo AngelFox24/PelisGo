@@ -22,7 +22,11 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchMovies(page: Int = 1) {
-        self.moviesList += self.getMoviesUseCase.execute(page: page)
+        if page == 1 {
+            self.moviesList = self.getMoviesUseCase.execute(page: page)
+        } else {
+            self.moviesList.append(contentsOf: self.getMoviesUseCase.execute(page: page))
+        }
     }
     
     func fetchNextPage() {

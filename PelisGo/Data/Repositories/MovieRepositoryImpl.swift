@@ -9,8 +9,8 @@ import Foundation
 
 protocol MovieRepository {
     func addMovie(movie: Movie) -> Bool //C
-    func getListMovies(page: Int) -> [Movie]
-    func getListMoviesBackUp() -> [Movie]
+    func getListMoviesBackUp(page: Int, pageSize: Int) -> [Movie]
+    func getListMovies(page: Int, pageSize: Int) -> [Movie]
     func clearAllMovies() -> Bool //D
     
 }
@@ -27,7 +27,7 @@ class MovieRepositoryImpl: MovieRepository {
         self.localManager.addMovie(movie: movie)
     }
     //R - Read
-    func getListMovies(page: Int) -> [Movie] {
+    func getListMovies(page: Int, pageSize: Int) -> [Movie] {
         var moviesResult: [Movie] = []
         let dispatchGroup = DispatchGroup()
         
@@ -39,7 +39,7 @@ class MovieRepositoryImpl: MovieRepository {
                 moviesResult = movies
                 dispatchGroup.leave()
             case .failure(let error):
-                moviesResult = self?.getListMoviesBackUp() ?? []
+                moviesResult = self?.getListMoviesBackUp(page: page, pageSize: 20) ?? []
                 print("Error Network: \(error)")
                 dispatchGroup.leave()
             }
@@ -50,8 +50,8 @@ class MovieRepositoryImpl: MovieRepository {
         return moviesResult
     }
     
-    func getListMoviesBackUp() -> [Movie] {
-        return self.localManager.getListMovies()
+    func getListMoviesBackUp(page: Int, pageSize: Int) -> [Movie]  {
+        return self.localManager.getListMovies(page: page, pageSize: pageSize)
     }
     
     func clearAllMovies() -> Bool {
