@@ -11,7 +11,7 @@ protocol LogInUseCase {
     func logIn(user: String, password: String, completion: @escaping (LogInStatus) -> Void)
 }
 
-class LogInInteractor: LogInUseCase {
+final class LogInInteractor: LogInUseCase {
     func logIn(user: String, password: String, completion: @escaping (LogInStatus) -> Void) {
         if (user == "Admin") && (password == "Password*123") {
             completion(.success)

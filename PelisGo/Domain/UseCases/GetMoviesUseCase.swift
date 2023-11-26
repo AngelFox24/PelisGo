@@ -11,7 +11,7 @@ protocol GetMoviesUseCase {
     func execute(page: Int) -> [Movie]
 }
 
-class GetMovieInteractor: GetMoviesUseCase {
+final class GetMovieInteractor: GetMoviesUseCase {
     private let movieRepository: MovieRepository
     
     init(movieRepository: MovieRepository) {
@@ -19,6 +19,7 @@ class GetMovieInteractor: GetMoviesUseCase {
     }
     
     func execute(page: Int) -> [Movie] {
+        print("GetMoviesUseCase Page: \(page)")
         guard page >= 1 else { return [] }
         return self.movieRepository.getListMovies(page: page, pageSize: 20)
     }
