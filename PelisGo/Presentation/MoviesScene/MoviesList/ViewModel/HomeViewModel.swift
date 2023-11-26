@@ -11,6 +11,7 @@ class HomeViewModel: ObservableObject {
     
     @Published var moviesList: [Movie] = []
     var currentPage: Int = 1
+    private var lastCarge: Int = 0
     
     private let getMoviesUseCase: GetMoviesUseCase
     private let clearAllMoviesUseCase: ClearAllMoviesUseCase
@@ -25,7 +26,13 @@ class HomeViewModel: ObservableObject {
         if page == 1 {
             self.moviesList = self.getMoviesUseCase.execute(page: page)
         } else {
-            self.moviesList.append(contentsOf: self.getMoviesUseCase.execute(page: page))
+            if lastCarge > 0 {
+                let moviesNewCarge = self.getMoviesUseCase.execute(page: page)
+                lastCarge = moviesNewCarge.count
+                self.moviesList.append(contentsOf: moviesNewCarge)
+            } else {
+                print("Ya no pedimos mas peliculas")
+            }
         }
     }
     

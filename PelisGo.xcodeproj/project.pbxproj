@@ -21,13 +21,14 @@
 		27D04FA92B125EE9004B5651 /* SaveMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D04FA82B125EE9004B5651 /* SaveMovieUseCase.swift */; };
 		27D04FAC2B126268004B5651 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D04FAB2B126268004B5651 /* Dependencies.swift */; };
 		27D04FAF2B12719D004B5651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27D04FB12B12719D004B5651 /* Localizable.strings */; };
+		27D04FB52B12BE80004B5651 /* GetMoviesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D04FB42B12BE80004B5651 /* GetMoviesUseCaseTests.swift */; };
+		27D04FB82B12D44E004B5651 /* LocalStorageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D04FB72B12D44E004B5651 /* LocalStorageServiceTest.swift */; };
 		27D961EC2B0FC7560037BD38 /* PelisGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */; };
 		27D961EE2B0FC7560037BD38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961ED2B0FC7560037BD38 /* ContentView.swift */; };
 		27D961F02B0FC7570037BD38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D961EF2B0FC7570037BD38 /* Assets.xcassets */; };
 		27D961F32B0FC7570037BD38 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D961F22B0FC7570037BD38 /* Preview Assets.xcassets */; };
 		27D961F52B0FC7570037BD38 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D961F42B0FC7570037BD38 /* Persistence.swift */; };
 		27D961F82B0FC7570037BD38 /* PelisGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D961F62B0FC7570037BD38 /* PelisGo.xcdatamodeld */; };
-		27D962022B0FC7570037BD38 /* PelisGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D962012B0FC7570037BD38 /* PelisGoTests.swift */; };
 		27D9620C2B0FC7570037BD38 /* PelisGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9620B2B0FC7570037BD38 /* PelisGoUITests.swift */; };
 		27D9620E2B0FC7570037BD38 /* PelisGoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9620D2B0FC7570037BD38 /* PelisGoUITestsLaunchTests.swift */; };
 		27D962202B0FDB760037BD38 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9621F2B0FDB760037BD38 /* HomeView.swift */; };
@@ -77,6 +78,8 @@
 		27D04FAB2B126268004B5651 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		27D04FB02B12719D004B5651 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		27D04FB22B1271A2004B5651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		27D04FB42B12BE80004B5651 /* GetMoviesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesUseCaseTests.swift; sourceTree = "<group>"; };
+		27D04FB72B12D44E004B5651 /* LocalStorageServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageServiceTest.swift; sourceTree = "<group>"; };
 		27D961E82B0FC7560037BD38 /* PelisGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PelisGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D961EB2B0FC7560037BD38 /* PelisGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoApp.swift; sourceTree = "<group>"; };
 		27D961ED2B0FC7560037BD38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,7 +88,6 @@
 		27D961F42B0FC7570037BD38 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		27D961F72B0FC7570037BD38 /* PelisGo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PelisGo.xcdatamodel; sourceTree = "<group>"; };
 		27D961FD2B0FC7570037BD38 /* PelisGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelisGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27D962012B0FC7570037BD38 /* PelisGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoTests.swift; sourceTree = "<group>"; };
 		27D962072B0FC7570037BD38 /* PelisGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelisGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D9620B2B0FC7570037BD38 /* PelisGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoUITests.swift; sourceTree = "<group>"; };
 		27D9620D2B0FC7570037BD38 /* PelisGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelisGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -305,6 +307,22 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		27D04FB32B12BB69004B5651 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				27D04FB42B12BE80004B5651 /* GetMoviesUseCaseTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		27D04FB62B12D0CF004B5651 /* Infraestructure */ = {
+			isa = PBXGroup;
+			children = (
+				27D04FB72B12D44E004B5651 /* LocalStorageServiceTest.swift */,
+			);
+			path = Infraestructure;
+			sourceTree = "<group>";
+		};
 		27D961DF2B0FC7560037BD38 = {
 			isa = PBXGroup;
 			children = (
@@ -349,7 +367,8 @@
 		27D962002B0FC7570037BD38 /* PelisGoTests */ = {
 			isa = PBXGroup;
 			children = (
-				27D962012B0FC7570037BD38 /* PelisGoTests.swift */,
+				27D04FB62B12D0CF004B5651 /* Infraestructure */,
+				27D04FB32B12BB69004B5651 /* Domain */,
 			);
 			path = PelisGoTests;
 			sourceTree = "<group>";
@@ -515,6 +534,7 @@
 					};
 					27D961FC2B0FC7570037BD38 = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 						TestTargetID = 27D961E72B0FC7560037BD38;
 					};
 					27D962062B0FC7570037BD38 = {
@@ -612,7 +632,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27D962022B0FC7570037BD38 /* PelisGoTests.swift in Sources */,
+				27D04FB52B12BE80004B5651 /* GetMoviesUseCaseTests.swift in Sources */,
+				27D04FB82B12D44E004B5651 /* LocalStorageServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,15 +858,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9TAXVQDQJU;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MrProFox.PelisGoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PelisGo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PelisGo";
@@ -857,11 +880,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9TAXVQDQJU;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MrProFox.PelisGoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
