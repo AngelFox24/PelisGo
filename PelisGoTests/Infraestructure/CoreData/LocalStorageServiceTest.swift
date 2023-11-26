@@ -58,12 +58,12 @@ final class LocalStorageServiceTest: XCTestCase {
         let localMovieManager = LocalMovieManager(mainContext: dependencies.mainContext)
         let page: Int = 1
         //when
-        localMovieManager.addMovie(movie: movie1)
-        localMovieManager.addMovie(movie: movie2)
+        let _ = localMovieManager.addMovie(movie: movie1)
+        let _ = localMovieManager.addMovie(movie: movie2)
         let clear = localMovieManager.clearAllMovies()
         let moviesLocalList = localMovieManager.getListMovies(page: page, pageSize: 20)
         //then
         XCTAssertTrue(clear, "Core Data no esta borrando correctamente los datos")
-        XCTAssertEqual(moviesLocalList, 0, "Core Data no esta borrando correctamente los datos")
+        XCTAssertEqual(moviesLocalList.count, 0, "Core Data no esta borrando correctamente los datos")
     }
 }
