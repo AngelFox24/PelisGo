@@ -11,7 +11,7 @@ protocol GetMoviesUseCase {
     func execute(page: Int) -> [Movie]
 }
 
-class GetMovieInteractor: GetMoviesUseCase {
+final class GetMovieInteractor: GetMoviesUseCase {
     private let movieRepository: MovieRepository
     
     init(movieRepository: MovieRepository) {
