@@ -15,7 +15,7 @@ protocol LoMovieManager {
     func clearAllMovies() -> Bool //D
 }
 
-class LocalMovieManager: LoMovieManager {
+final class LocalMovieManager: LoMovieManager {
     let mainContext: NSManagedObjectContext
     init(mainContext: NSManagedObjectContext) {
         self.mainContext = mainContext

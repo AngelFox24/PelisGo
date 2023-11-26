@@ -19,6 +19,7 @@ class GetMovieInteractor: GetMoviesUseCase {
     }
     
     func execute(page: Int) -> [Movie] {
+        guard page >= 1 else { return [] }
         return self.movieRepository.getListMovies(page: page, pageSize: 20)
     }
 }

@@ -16,7 +16,7 @@ enum APIError: Error {
 protocol ReMovieManager {
     func getListMovies(page: Int, completion: @escaping (Result<[Movie], APIError>) -> Void)
 }
-class RemoteMovieManager: ReMovieManager {
+final class RemoteMovieManager: ReMovieManager {
     static let apiKey = "f46b58478f489737ad5a4651a4b25079"
     func getListMovies(page: Int, completion: @escaping (Result<[Movie], APIError>) -> Void) {
         // URL de la API
