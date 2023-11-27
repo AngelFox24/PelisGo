@@ -270,7 +270,6 @@
 			children = (
 				27D04F9B2B123BBE004B5651 /* Entities */,
 				27D04F9C2B123BC6004B5651 /* UseCases */,
-				27D04F9D2B123BD8004B5651 /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -293,21 +292,6 @@
 				27D04FA82B125EE9004B5651 /* SaveMovieUseCase.swift */,
 			);
 			path = UseCases;
-			sourceTree = "<group>";
-		};
-		27D04F9D2B123BD8004B5651 /* Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-				27D04F9E2B123BE7004B5651 /* Repositories */,
-			);
-			path = Interfaces;
-			sourceTree = "<group>";
-		};
-		27D04F9E2B123BE7004B5651 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		27D04F9F2B123F18004B5651 /* PersistentSorage */ = {

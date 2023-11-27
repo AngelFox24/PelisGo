@@ -23,7 +23,6 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchMovies(page: Int = 1) {
-        print("Carge1: \(lastCarge), inPage: \(page)")
         if page == 1 {
             let moviesNewCarge = self.getMoviesUseCase.execute(page: page)
             lastCarge = moviesNewCarge.count
@@ -33,11 +32,8 @@ class HomeViewModel: ObservableObject {
                 let moviesNewCarge = self.getMoviesUseCase.execute(page: page)
                 lastCarge = moviesNewCarge.count
                 self.moviesList.append(contentsOf: moviesNewCarge)
-            } else {
-                print("Ya no pedimos mas peliculas")
             }
         }
-        print("Carge2: \(lastCarge), inPage: \(page)")
     }
     
     func fetchNextPage() {

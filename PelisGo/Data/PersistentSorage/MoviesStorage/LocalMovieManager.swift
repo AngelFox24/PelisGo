@@ -9,10 +9,9 @@ import Foundation
 import CoreData
 
 protocol LoMovieManager {
-    func addMovie(movie: Movie) -> Bool //C
-    func getListMovies(page: Int, pageSize: Int) -> [Movie] //R
-    //func updateMovie(movie: Movie) //U
-    func clearAllMovies() -> Bool //D
+    func addMovie(movie: Movie) -> Bool
+    func getListMovies(page: Int, pageSize: Int) -> [Movie]
+    func clearAllMovies() -> Bool
 }
 
 final class LocalMovieManager: LoMovieManager {
@@ -30,10 +29,8 @@ final class LocalMovieManager: LoMovieManager {
     func rollback() {
         self.mainContext.rollback()
     }
-    //C - Create
     func addMovie(movie: Movie) -> Bool {
-        if let movieInContext = movie.toMovieEntity(context: mainContext) { //Existe pelicula, vamos a actualizarlo
-            print("Se encontro producto, lo vamos a actualizar")
+        if let movieInContext = movie.toMovieEntity(context: mainContext) {
             movieInContext.adult = movie.adult
             movieInContext.id = Int64(movie.id)
             movieInContext.poster_path = movie.poster_path
@@ -46,7 +43,6 @@ final class LocalMovieManager: LoMovieManager {
             return true
         } else {
             //Creamos una nueva pelicula
-            print("Se crea nuevo")
             let newMovie = CD_Movie(context: mainContext)
             newMovie.adult = movie.adult
             newMovie.id = Int64(movie.id)
@@ -60,13 +56,11 @@ final class LocalMovieManager: LoMovieManager {
             return true
         }
     }
-    //R - Read
     func getListMovies(page: Int, pageSize: Int) -> [Movie] {
         var moviesEntityList: [CD_Movie] = []
         
         let request: NSFetchRequest<CD_Movie> = CD_Movie.fetchRequest()
         
-        // Configurar paginación
         request.fetchLimit = pageSize
         request.fetchOffset = (page - 1) * pageSize
         
@@ -77,8 +71,6 @@ final class LocalMovieManager: LoMovieManager {
         }
         return moviesEntityList.compactMap{$0.toMovie()}
     }
-    //U - Update
-    //D - Delete
     func clearAllMovies() -> Bool {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CD_Movie")
         let solicitudEliminacion = NSBatchDeleteRequest(fetchRequest: request)

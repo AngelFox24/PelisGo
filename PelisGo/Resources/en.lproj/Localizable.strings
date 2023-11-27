@@ -10,3 +10,9 @@
 "Error" = "Error";
 "No internet connection" = "No internet connection";
 "Failed loading movies" = "Failed loading movies";
+"User" = "User";
+"Password" = "Password";
+"Log In" = "Log In";
+"Log Out" = "Log Out";
+"Refresh" = "Refresh";
+"Clean Local Data" = "Clean Local Data";

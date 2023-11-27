@@ -33,7 +33,6 @@ struct Movie: Identifiable, Decodable, Equatable, Hashable {
     }
     
     static func == (lhs: Movie, rhs: Movie) -> Bool {
-        // Puedes ajustar la lógica de comparación según tus necesidades
         return lhs.id == rhs.id
     }
     
