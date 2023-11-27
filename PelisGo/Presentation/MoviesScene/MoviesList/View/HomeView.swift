@@ -55,12 +55,11 @@ struct HomeView: View {
                                             Image(systemName: "calendar")
                                             Text(String(movie.release_date_converted?.getDateComponent(dateComponent: .year) ?? 0))
                                         }
-                                        .foregroundColor(.yellow)
+                                        .foregroundColor(Color("color_accent"))
                                         .font(.custom("Artifika-Regular", size: 20))
                                         Spacer()
                                     }
                                 })
-                                .border(Color.red)
                                 .onAppear(perform: {
                                     if homeViewModel.shouldLoadData(movie: movie) {
                                         homeViewModel.fetchNextPage()
@@ -68,6 +67,7 @@ struct HomeView: View {
                                 })
                             })
                             .listRowSeparator(.hidden)
+                            .listRowBackground(Color("color_background"))
                         }
                         .listRowSeparator(.hidden)
                     }
@@ -82,7 +82,7 @@ struct HomeView: View {
                 })
             }
         }
-        .background(Color(.gray))
+        .background(Color("color_background"))
     }
 }
 

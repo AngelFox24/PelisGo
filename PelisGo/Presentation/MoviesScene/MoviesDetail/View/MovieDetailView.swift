@@ -45,7 +45,7 @@ struct MovieDetailViewScroll: View {
             let movie: Movie = detailViewModel.movie ?? Movie.preview
             VStack(spacing: 0, content: {
                 HStack(content: {
-                    CustomAsyncImageView(id: movie.id.description + "_backdrop_path", urlProducto: movie.backdropURL?.absoluteString ?? "", sizeWidth: .infinity, sizeHeight: 210, contendMode: .fill)
+                    CustomAsyncImageView(id: movie.id.description + "_backdrop_path", urlProducto: movie.backdropURL?.absoluteString ?? "", sizeWidth: UIScreen.main.bounds.width, sizeHeight: 210, contendMode: .fill)
                 })
                 HStack(content: {
                     Spacer()
@@ -57,11 +57,11 @@ struct MovieDetailViewScroll: View {
                         Spacer()
                     }
                 })
-                .foregroundColor(.yellow)
+                .foregroundColor(Color("color_accent"))
                 .font(.custom("Artifika-Regular", size: 25))
                 .padding(.top, 20)
                 HStack(spacing: 5, content: {
-                    CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, contendMode: .fit)
+                    CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, contendMode: .fill)
                     VStack(content: {
                         Text(overviewD)
                             .font(.custom("Artifika-Regular", size: 24))
