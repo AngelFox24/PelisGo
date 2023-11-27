@@ -10,3 +10,9 @@
 "Error" = "Error";
 "No internet connection" = "Sin conexión a internet";
 "Failed loading movies" = "Error al descargar películas";
+"User" = "Usuario";
+"Password" = "Contraseña";
+"Log In" = "Iniciar Sesión";
+"Log Out" = "Cerrar Sesión";
+"Refresh" = "Volver a Cargar";
+"Clean Local Data" = "Limpiar Datos Locales";

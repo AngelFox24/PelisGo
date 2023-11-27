@@ -19,11 +19,12 @@ struct HomeView: View {
                     Button(action: {
                         homeViewModel.fetchMovies()
                     }, label: {
+                        let refreshLabel = NSLocalizedString("Refresh", comment: "Refresh")
                         VStack(content: {
                             Image(systemName: "arrow.counterclockwise")
                                 .font(.custom("Artifika-Regular", size: 90))
                                 .foregroundColor(.blue)
-                            Text("Recargar.")
+                            Text(refreshLabel)
                                 .foregroundColor(.blue)
                                 .padding(.horizontal, 20)
                                 .font(.custom("Artifika-Regular", size: 18))
@@ -62,7 +63,6 @@ struct HomeView: View {
                                 .border(Color.red)
                                 .onAppear(perform: {
                                     if homeViewModel.shouldLoadData(movie: movie) {
-                                        print("Cargandoooooo")
                                         homeViewModel.fetchNextPage()
                                     }
                                 })
@@ -78,8 +78,6 @@ struct HomeView: View {
                         withAnimation {
                             MovieDetailView()
                         }
-                    } else {
-                        let _ = print("Sin Ruta")
                     }
                 })
             }

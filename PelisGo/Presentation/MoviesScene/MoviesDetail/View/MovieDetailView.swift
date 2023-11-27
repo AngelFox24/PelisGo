@@ -39,7 +39,6 @@ struct MovieDetailView_Previews: PreviewProvider {
 struct MovieDetailViewScroll: View {
     @EnvironmentObject var detailViewModel: DetailViewModel
     @Namespace var nameSpace
-    //let movie = Movie.preview
     var body: some View {
         ScrollView(content: {
             let overviewD = NSLocalizedString("Description", comment: "Description")
@@ -78,6 +77,5 @@ struct MovieDetailViewScroll: View {
                 .padding(.horizontal, 10)
             })
         })
-        //.padding(.horizontal, 10)
     }
 }

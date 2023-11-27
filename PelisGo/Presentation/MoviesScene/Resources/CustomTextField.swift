@@ -75,7 +75,6 @@ struct CustomTextField: View {
                         if isTextFieldFocused {
                             Button(action: {
                                 if isTextFieldFocused {
-                                    print("Limpiamos \(title)")
                                     value.removeAll()
                                 } else if !disable {
                                     isTextFieldFocused = true
@@ -86,7 +85,6 @@ struct CustomTextField: View {
                                     .font(.custom("Artifika-Regular", size: 16))
                                     .padding(.horizontal, 2)
                                     .padding(.vertical, 8)
-                                    //.opacity(isTextFieldFocused ? 1 : 0)
                                     .animation(.easeInOut(duration: 0.4), value: isTextFieldFocused)
                             })
                         }
@@ -118,9 +116,7 @@ struct CustomTextField_Previews: PreviewProvider {
         HStack(spacing: 6) {
             CustomTextField(title: "Nombre del producto",value: $dato ,edited: .constant(false), keyboardType: .numberPad)
             CustomTextField(value: $dato, edited: .constant(false), disable: false, keyboardType: .numberPad)
-            //CustomTextField(edited: .constant(false))
         }
-        //.frame(maxHeight: .infinity)
         .background(Color("color_background"))
     }
 }
