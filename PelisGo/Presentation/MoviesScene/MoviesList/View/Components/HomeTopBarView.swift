@@ -36,7 +36,7 @@ struct HomeTopBarView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text("Pelis Go")
+            Text("PELIS GO")
                 .font(.custom("Artifika-Regular", size: 20))
             Spacer()
             HStack(content: {
