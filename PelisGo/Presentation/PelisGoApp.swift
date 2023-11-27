@@ -20,4 +20,9 @@ struct PelisGoApp: App {
                 .environmentObject(dependencies.navManager)
         }
     }
+    /*
+    static var isTesting: Bool {
+        return ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+    }
+     */
 }

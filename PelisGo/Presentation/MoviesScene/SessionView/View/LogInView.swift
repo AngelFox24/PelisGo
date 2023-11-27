@@ -16,22 +16,23 @@ struct LogInView: View {
         ScrollView {
             VStack(spacing: 30) {
                 Spacer()
-                Text("Iniciar Sesión")
+                let logInLabel = NSLocalizedString("Log In", comment: "Log In")
+                Text(logInLabel)
                     .font(.custom("Artifika-Regular", size: 30))
                     .padding(.bottom, 50)
                 VStack(spacing: 40){
                     VStack {
-                        CustomTextField(title: "Usuario" ,value: $logInViewModel.logInFields.user, edited: $logInViewModel.logInFields.userEdited, keyboardType: .default)
+                        let userLabel = NSLocalizedString("User", comment: "Usuario")
+                        CustomTextField(title: userLabel ,value: $logInViewModel.logInFields.user, edited: $logInViewModel.logInFields.userEdited, keyboardType: .default)
                         if logInViewModel.logInFields.userError != "" {
                             ErrorMessageText(message: logInViewModel.logInFields.userError)
-                            //.padding(.top, 18)
                         }
                     }
                     VStack {
-                        CustomTextField(title: "Contraseña" ,value: $logInViewModel.logInFields.password, edited: $logInViewModel.logInFields.passwordEdited, keyboardType: .default, secureField: true)
+                        let passwordLabel = NSLocalizedString("Password", comment: "Password")
+                        CustomTextField(title: passwordLabel, value: $logInViewModel.logInFields.password, edited: $logInViewModel.logInFields.passwordEdited, keyboardType: .default, secureField: true)
                         if logInViewModel.logInFields.passwordError != "" {
                             ErrorMessageText(message: logInViewModel.logInFields.passwordError)
-                            //.padding(.top, 18)
                         }
                     }
                 }
@@ -41,11 +42,10 @@ struct LogInView: View {
                         logInViewModel.logIn()
                     }, label: {
                         VStack {
-                            CustomButton1(text: "Ingresar", backgroudColor: Color("color_accent"), minWidthC: 250)
+                            CustomButton1(text: logInLabel, backgroudColor: Color("color_accent"), minWidthC: 250)
                                 .foregroundColor(Color(.black))
                             if logInViewModel.logInFields.errorLogIn != "" {
                                 ErrorMessageText(message: logInViewModel.logInFields.errorLogIn)
-                                //.padding(.top, 18)
                             }
                         }
                     })

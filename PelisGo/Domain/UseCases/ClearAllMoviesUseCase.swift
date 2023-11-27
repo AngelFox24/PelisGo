@@ -12,7 +12,7 @@ protocol ClearAllMoviesUseCase {
     func execute() -> Bool
 }
 
-class ClearAllMoviesInteractor: ClearAllMoviesUseCase {
+final class ClearAllMoviesInteractor: ClearAllMoviesUseCase {
     private let movieRepository: MovieRepository
 
     init(movieRepository: MovieRepository) {

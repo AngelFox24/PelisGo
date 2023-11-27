@@ -19,11 +19,12 @@ struct HomeView: View {
                     Button(action: {
                         homeViewModel.fetchMovies()
                     }, label: {
+                        let refreshLabel = NSLocalizedString("Refresh", comment: "Refresh")
                         VStack(content: {
                             Image(systemName: "arrow.counterclockwise")
                                 .font(.custom("Artifika-Regular", size: 90))
                                 .foregroundColor(.blue)
-                            Text("Recargar.")
+                            Text(refreshLabel)
                                 .foregroundColor(.blue)
                                 .padding(.horizontal, 20)
                                 .font(.custom("Artifika-Regular", size: 18))
@@ -54,20 +55,19 @@ struct HomeView: View {
                                             Image(systemName: "calendar")
                                             Text(String(movie.release_date_converted?.getDateComponent(dateComponent: .year) ?? 0))
                                         }
-                                        .foregroundColor(.yellow)
+                                        .foregroundColor(Color("color_accent"))
                                         .font(.custom("Artifika-Regular", size: 20))
                                         Spacer()
                                     }
                                 })
-                                .border(Color.red)
                                 .onAppear(perform: {
                                     if homeViewModel.shouldLoadData(movie: movie) {
-                                        print("Cargandoooooo")
                                         homeViewModel.fetchNextPage()
                                     }
                                 })
                             })
                             .listRowSeparator(.hidden)
+                            .listRowBackground(Color("color_background"))
                         }
                         .listRowSeparator(.hidden)
                     }
@@ -78,13 +78,11 @@ struct HomeView: View {
                         withAnimation {
                             MovieDetailView()
                         }
-                    } else {
-                        let _ = print("Sin Ruta")
                     }
                 })
             }
         }
-        .background(Color(.gray))
+        .background(Color("color_background"))
     }
 }
 

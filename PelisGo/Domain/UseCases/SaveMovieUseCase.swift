@@ -12,7 +12,7 @@ protocol SaveMovieUseCase {
     func execute(movie: Movie) -> Bool
 }
 
-class SaveMovieInteractor: SaveMovieUseCase {
+final class SaveMovieInteractor: SaveMovieUseCase {
     private let movieRepository: MovieRepository
     
     init(movieRepository: MovieRepository) {

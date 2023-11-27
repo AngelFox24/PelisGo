@@ -12,7 +12,7 @@ struct MovieCardView: View {
     var save: Bool = true
     var body: some View {
         VStack(content: {
-            CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, save: save)
+            CustomAsyncImageView(id: movie.id.description + "_poster_path", urlProducto: movie.poster?.absoluteString ?? "", sizeWidth: 120, sizeHeight: 200, contendMode: .fill, save: save)
         })
     }
 }

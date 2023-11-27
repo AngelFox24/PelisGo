@@ -8,11 +8,10 @@
 import Foundation
 
 protocol MovieRepository {
-    func addMovie(movie: Movie) -> Bool //C
+    func addMovie(movie: Movie) -> Bool
     func getListMoviesBackUp(page: Int, pageSize: Int) -> [Movie]
     func getListMovies(page: Int, pageSize: Int) -> [Movie]
-    func clearAllMovies() -> Bool //D
-    
+    func clearAllMovies() -> Bool
 }
 
 class MovieRepositoryImpl: MovieRepository {
@@ -22,17 +21,13 @@ class MovieRepositoryImpl: MovieRepository {
         self.localManager = localManager
         self.remoteManager = remoteManager
     }
-    //C - Create
     func addMovie(movie: Movie) -> Bool {
         self.localManager.addMovie(movie: movie)
     }
-    //R - Read
     func getListMovies(page: Int, pageSize: Int) -> [Movie] {
         var moviesResult: [Movie] = []
         let dispatchGroup = DispatchGroup()
-        
         dispatchGroup.enter()
-        
         self.remoteManager.getListMovies(page: page) { [weak self] result in
             switch result {
             case .success(let movies):
@@ -44,16 +39,12 @@ class MovieRepositoryImpl: MovieRepository {
                 dispatchGroup.leave()
             }
         }
-        
         dispatchGroup.wait()
-        
         return moviesResult
     }
-    
     func getListMoviesBackUp(page: Int, pageSize: Int) -> [Movie]  {
         return self.localManager.getListMovies(page: page, pageSize: pageSize)
     }
-    
     func clearAllMovies() -> Bool {
         self.localManager.clearAllMovies()
     }

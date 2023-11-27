@@ -25,6 +25,13 @@ extension Movie {
 
 extension CD_Movie {
     func toMovie() -> Movie {
-        return Movie(adult: adult, id: Int(id), poster_path: poster_path, title:  title ?? "", overview: overview ?? "", vote_average: vote_average, backdrop_path: backdrop_path, release_date: release_date)
+        return Movie(adult: adult,
+                     id: Int(id),
+                     poster_path: poster_path,
+                     title:  title ?? "",
+                     overview: overview ?? "",
+                     vote_average: vote_average,
+                     backdrop_path: backdrop_path,
+                     release_date: release_date)
     }
 }

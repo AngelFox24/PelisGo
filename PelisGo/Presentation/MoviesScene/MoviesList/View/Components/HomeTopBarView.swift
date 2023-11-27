@@ -14,11 +14,14 @@ enum HomeSelection {
     var longDescription: String {
         switch self {
         case .refresh:
-            return "Volver a Cargar"
+            let refreshLabel = NSLocalizedString("Refresh", comment: "Refresh")
+            return refreshLabel
         case .logOut:
-            return "Cerrar Sesion"
+            let logOutLabel = NSLocalizedString("Log Out", comment: "Log Out")
+            return logOutLabel
         case .clearCoreData:
-            return "Limpiar Archivos Locales"
+            let cleanLocalDataLabel = NSLocalizedString("Clean Local Data", comment: "Clean Local Data")
+            return cleanLocalDataLabel
         }
     }
     static var allValues: [HomeSelection] {
@@ -33,7 +36,7 @@ struct HomeTopBarView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text("Pelis Go")
+            Text("PELIS GO")
                 .font(.custom("Artifika-Regular", size: 20))
             Spacer()
             HStack(content: {
@@ -84,24 +87,11 @@ struct HomeTopBarView: View {
 struct HomeTopBarView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let localMovieManager = LocalMovieManager(mainContext: PersistenceController.shared.viewContext)
-        let remoteMovieManager = RemoteMovieManager()
-        //Repositories
-        let movieRepository = MovieRepositoryImpl(localManager: localMovieManager, remoteManager: remoteMovieManager)
-        //UseCases
-        let logInUseCase = LogInInteractor()
-        let getMoviesUseCase = GetMovieInteractor(movieRepository: movieRepository)
-        let saveMovieUseCase = SaveMovieInteractor(movieRepository: movieRepository)
-        let clearAllMoviesUseCase = ClearAllMoviesInteractor(movieRepository: movieRepository)
-        //ViewModel
-        let logInViewModel = LogInViewModel(logInUseCase: logInUseCase)
-        let homeViewModel = HomeViewModel(getMoviesUseCase: getMoviesUseCase, clearAllMoviesUseCase: clearAllMoviesUseCase)
-        let detailViewModel = DetailViewModel(saveMovieUseCase: saveMovieUseCase)
-        let navManager = NavManager()
+        let dependencies = Dependencies()
         HomeTopBarView()
-            .environmentObject(logInViewModel)
-            .environmentObject(homeViewModel)
-            .environmentObject(detailViewModel)
-            .environmentObject(navManager)
+            .environmentObject(dependencies.logInViewModel)
+            .environmentObject(dependencies.homeViewModel)
+            .environmentObject(dependencies.detailViewModel)
+            .environmentObject(dependencies.navManager)
     }
 }

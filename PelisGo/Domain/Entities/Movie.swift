@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Identifiable, Decodable, Equatable {
+struct Movie: Identifiable, Decodable, Equatable, Hashable {
     let adult: Bool
     let id: Int
     let poster_path: String?
@@ -33,7 +33,6 @@ struct Movie: Identifiable, Decodable, Equatable {
     }
     
     static func == (lhs: Movie, rhs: Movie) -> Bool {
-        // Puedes ajustar la lógica de comparación según tus necesidades
         return lhs.id == rhs.id
     }
     
