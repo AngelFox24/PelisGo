@@ -1,6 +1,6 @@
 # PelisGo
 
-PelisGo es una pequeño proyecto de prueba para **[iOS]** con el objetivo de mostrar mis habilidades técnicas y forma de desarrollar. La app consiste en mostrar las tendencias en el cine y peliculas del momento con una puntuacion y resumen.
+PelisGo es un pequeño proyecto de prueba para **[iOS]** con el objetivo de mostrar mis habilidades técnicas y forma de desarrollar. La aplicación consiste en mostrar las tendencias en el cine y películas del momento con una puntuación y resumen.
 
 ### Requisitos mínimos
 [![Swift](https://img.shields.io/badge/Swift-5-orange.svg?longCache=true&style=popout-square)](https://swift.org)
@@ -18,7 +18,7 @@ PelisGo es una pequeño proyecto de prueba para **[iOS]** con el objetivo de mos
 * Maneja una Base de Datos con Core Data.
 * Uso de API.
 * Esta escrito íntegramente con Swift y SwiftUI.
-* Implementacion de pruebas unitarias.
+* Implementación de pruebas unitarias.
 * Adaptación con "Localizable Strings" para 2 idiomas.
 
 ### Suposiciones
