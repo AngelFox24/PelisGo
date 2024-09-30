@@ -21,13 +21,18 @@ PelisGo es un pequeño proyecto de prueba para **[iOS]** con el objetivo de most
 * Implementación de pruebas unitarias.
 * Adaptación con "Localizable Strings" para 2 idiomas.
 
+## Imagen de Muestra
+<div style="display: flex; justify-content: space-between;">
+<img src="Captura.png" alt="Texto alternativo" height="500"/>
+<img src="Captura2.png" alt="Texto alternativo" height="500"/>
+</div>
 ### Suposiciones
 
 * Se entiende por "Películas Buscadas" a aquellas que el usuario selecciona de la lista para ver más detalles de esta.
 * Se entiende por "Películas con Paginación (20 ítems por página)" a que la aplicación gestione internamente las solicitudes poco a poco.
 
 ### ¿Cómo puedo contactarte?
-![Foto de Perfil](https://media.licdn.com/dms/image/D4E35AQGyY_TGpkH1zg/profile-framedphoto-shrink_100_100/0/1690465308634?e=1701666000&v=beta&t=6avfb20a3bG89lEMHDzvb0dvRlWK047ji1YxA4kCKd8)
+<img src="Perfil.jpeg" alt="Texto alternativo" height="100"/>
 
 ## Hola, mi nombre es Angel Curi, soy el creador de PelisGo.
 
